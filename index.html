@@ -6,7 +6,7 @@
   <title>AI Drivers | Fully Automated AI Team in Less Than 5 Days</title>
   <meta name="description" content="We assess your business, build a custom AI system trained on your operations, and install it for you. Two founders. One private channel. ROI back in 90 days.">
   <meta property="og:title" content="AI Drivers | Fully Automated AI Team in Less Than 5 Days">
-  <meta property="og:description" content="Custom AI system team built, installed, and running inside your business in under 5 days. $5,000.">
+  <meta property="og:description" content="Custom AI system team built, installed, and running inside your business in under 5 days. $4,000.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -342,8 +342,35 @@
     }
     .pricing-block .total-value { font-size: 1.1rem; color: var(--gray); margin-bottom: 8px; }
     .pricing-block .price { font-family: var(--font-head); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 8px; }
-    .pricing-block .payment-plan { color: var(--gray); font-size: 0.9rem; margin-bottom: 32px; }
+    .pricing-block .price-sub { color: var(--gray); font-size: 0.95rem; margin-bottom: 36px; }
     .pricing-block .roi-text { color: var(--gray-light); font-size: 0.95rem; max-width: 600px; margin: 24px auto 0; line-height: 1.7; }
+
+    .payment-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 720px; margin: 0 auto 32px; }
+    .payment-option {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 24px 16px; border-radius: var(--radius-md); text-decoration: none;
+      border: 1px solid var(--border-active); background: rgba(17, 17, 51, 0.5);
+      transition: border-color 0.15s, box-shadow 0.2s, transform 0.15s var(--ease-snap);
+      cursor: pointer;
+    }
+    .payment-option:hover {
+      border-color: rgba(123, 60, 245, 0.6); transform: translateY(-3px);
+      box-shadow: 0 0 30px var(--accent-glow);
+    }
+    .payment-option.featured {
+      border-color: var(--teal); background: rgba(0, 217, 164, 0.08);
+      box-shadow: 0 0 20px var(--teal-glow);
+    }
+    .payment-option.featured:hover { border-color: var(--teal-light); box-shadow: 0 0 40px var(--teal-glow); }
+    .payment-option .po-badge {
+      font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--teal-light); margin-bottom: 8px;
+    }
+    .payment-option .po-price {
+      font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; color: var(--white); margin-bottom: 4px;
+    }
+    .payment-option .po-detail { font-size: 0.8rem; color: var(--gray); }
+    @media (max-width: 810px) { .payment-options { grid-template-columns: 1fr; max-width: 320px; } }
 
     /* ── QUALIFICATION ── */
     .qual-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 48px; }
@@ -449,7 +476,7 @@
         <a href="#solution">How It Works</a>
         <a href="#offer">What's Included</a>
         <a href="#founders">About Us</a>
-        <a href="#apply" class="nav-cta">Apply Now</a>
+        <a href="https://whop.com/checkout/plan_DCtuvqLI723pD" class="nav-cta" target="_blank" rel="noopener">Get Started</a>
       </div>
     </div>
   </nav>
@@ -468,8 +495,8 @@
       <h1 class="reveal"><span class="glitch" data-text="Get a Fully Automated AI Team">Get a Fully Automated AI Team</span> Installed in Your Business. <span class="shimmer">In Less Than 5 Days.</span></h1>
       <p class="hero-sub reveal">We assess your business, build a custom AI system trained on your operations, and install it for you. Two founders. One private channel. ROI back in 90 days or you shouldn't do this.</p>
       <div class="hero-video reveal"><span>VSL Coming Soon</span></div>
-      <a href="#apply" class="btn magnetic reveal">Apply Now <span>&rarr;</span></a>
-      <p class="friction reveal">Limited spots. We build every system by hand. No commitment to apply.</p>
+      <a href="#apply" class="btn magnetic reveal">Get Started <span>&rarr;</span></a>
+      <p class="friction reveal">Limited spots. We build every system by hand.</p>
     </div>
   </section>
 
@@ -701,10 +728,26 @@
 
       <div class="pricing-block reveal" id="apply">
         <div class="total-value">Total Value: <s>$29,500+</s></div>
-        <div class="price shimmer">$5,000</div>
-        <div class="payment-plan">Payment plan available. Ask during your application call.</div>
-        <a href="#" class="btn">Apply Now <span>&rarr;</span></a>
-        <p class="roi-text">The average client makes the $5,000 back within their first 90 days. Close one additional client, take on one more project, or save 15+ hours per week on operations. The math handles itself. And the system doesn't expire.</p>
+        <div class="price shimmer">$4,000</div>
+        <div class="price-sub">Choose your payment option</div>
+        <div class="payment-options">
+          <a href="https://whop.com/checkout/plan_DCtuvqLI723pD" class="payment-option featured" target="_blank" rel="noopener">
+            <div class="po-badge">Best Value</div>
+            <div class="po-price">$4,000</div>
+            <div class="po-detail">Pay in full</div>
+          </a>
+          <a href="https://whop.com/checkout/plan_tSnNLDp3Hfg2J" class="payment-option" target="_blank" rel="noopener">
+            <div class="po-badge">2 Payments</div>
+            <div class="po-price">$2,000<span style="font-size:0.6em;font-weight:400">/mo</span></div>
+            <div class="po-detail">2 monthly payments</div>
+          </a>
+          <a href="https://whop.com/checkout/plan_1Ixm37N92R4HO" class="payment-option" target="_blank" rel="noopener">
+            <div class="po-badge">3 Payments</div>
+            <div class="po-price">$1,300<span style="font-size:0.6em;font-weight:400">/mo</span></div>
+            <div class="po-detail">3 monthly payments</div>
+          </a>
+        </div>
+        <p class="roi-text">The average client makes their investment back within the first 90 days. Close one additional client, take on one more project, or save 15+ hours per week on operations. The math handles itself. And the system doesn't expire.</p>
       </div>
     </div>
   </section>
@@ -750,8 +793,8 @@
       <h2 class="section-heading reveal" style="text-align: center;">Straight answers.</h2>
       <div class="faq-list">
         <div class="faq-item reveal">
-          <button class="faq-q">Why $5,000?</button>
-          <div class="faq-a"><p>Because we build a custom system for your business, install it in less than 5 days, and coach you through 6 months of implementation. The system is designed to pay for itself within 90 days. One new client. One freed-up bottleneck. One workflow that used to take 3 days now taking 3 hours. If you can't see a path to making $5,000 back within 90 days using AI automation, this probably isn't for you yet.</p></div>
+          <button class="faq-q">Why $4,000?</button>
+          <div class="faq-a"><p>Because we build a custom system for your business, install it in less than 5 days, and coach you through 6 months of implementation. The system is designed to pay for itself within 90 days. One new client. One freed-up bottleneck. One workflow that used to take 3 days now taking 3 hours. If you can't see a path to making $4,000 back within 90 days using AI automation, this probably isn't for you yet.</p></div>
         </div>
         <div class="faq-item reveal">
           <button class="faq-q">How long does implementation take?</button>
@@ -771,7 +814,7 @@
         </div>
         <div class="faq-item reveal">
           <button class="faq-q">What's the ROI guarantee?</button>
-          <div class="faq-a"><p>Your investment back within 90 days. The system should generate or save you at least $5,000 through new revenue, saved time, increased capacity, or all three. If you show up for calls, implement what we build, and engage with the process, the 90-day timeline is conservative.</p></div>
+          <div class="faq-a"><p>Your investment back within 90 days. The system should generate or save you at least $4,000 through new revenue, saved time, increased capacity, or all three. If you show up for calls, implement what we build, and engage with the process, the 90-day timeline is conservative.</p></div>
         </div>
         <div class="faq-item reveal">
           <button class="faq-q">What do I need to get started?</button>
@@ -796,12 +839,11 @@
       <div class="cta-stats reveal">
         <span><strong>&lt;5 days</strong> to operational</span>
         <span><strong>6 months</strong> of direct support</span>
-        <span><strong>$5,000</strong></span>
+        <span><strong>$4,000</strong></span>
       </div>
-      <a href="#" class="btn magnetic reveal">Apply Now <span>&rarr;</span></a>
+      <a href="#apply" class="btn magnetic reveal">Get Started <span>&rarr;</span></a>
       <ul class="cta-friction-list reveal">
         <li>Limited spots. Every system is custom-built. We don't batch this.</li>
-        <li>No commitment to apply. The application is a conversation.</li>
         <li>Both founders on every call.</li>
       </ul>
       <p class="guarantee-line reveal">ROI back within 90 days. That's the promise. Show up, implement, and engage with the coaching. The system handles the rest.</p>
@@ -819,7 +861,7 @@
 
   <!-- MOBILE CTA -->
   <div class="mobile-cta">
-    <a href="#apply" class="btn">Apply Now <span>&rarr;</span></a>
+    <a href="#apply" class="btn">Get Started <span>&rarr;</span></a>
   </div>
 
   <script>
