@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>AI Drivers | Build Your AI-Powered Agency in 30 Days</title>
-  <meta name="description" content="The complete operating system, done-for-you setup, and 1-on-1 consulting from an operator running this model right now. Not a course. Not prompts. A production system install.">
+  <meta name="description" content="The complete operating system, done-for-you setup, and 1-on-1 consulting from operators running this model right now. Not a course. Not prompts. A production system install.">
   <meta property="og:title" content="AI Drivers | Build Your AI-Powered Agency in 30 Days">
   <meta property="og:description" content="Get the exact operating system behind a working AI agency. Built, configured, and customized for your business.">
   <meta property="og:type" content="website">
@@ -418,34 +418,78 @@
     .pillar-card p { color: var(--gray); font-size: 0.95rem; line-height: 1.7; }
 
     /* ── FOUNDER SECTION ── */
-    .founder-layout { display: flex; gap: 60px; align-items: flex-start; margin-top: 40px; }
-    .founder-photo {
-      flex-shrink: 0;
-      width: 280px;
-      height: 340px;
+    .founder-intro { color: var(--gray-light); font-size: 1.05rem; line-height: 1.8; max-width: 700px; margin-top: 8px; }
+    .founder-intro p + p { margin-top: 16px; }
+    .founders-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; margin-top: 48px; }
+    .founder-card { text-align: center; }
+    .founder-photo-wrap {
+      width: 240px;
+      height: 300px;
+      margin: 0 auto 24px;
       border-radius: var(--radius-md);
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray);
-      font-size: 0.875rem;
       position: relative;
       overflow: hidden;
+      border: 1px solid var(--border);
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
-    .founder-photo::after {
+    .founder-photo-wrap:hover {
+      border-color: rgba(99, 49, 200, 0.4);
+      box-shadow: 0 0 40px var(--accent-glow), 0 0 60px var(--teal-glow);
+    }
+    .founder-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: saturate(0.85) brightness(0.95);
+      transition: filter 0.4s;
+    }
+    .founder-photo-wrap:hover img { filter: saturate(1) brightness(1); }
+    .founder-photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(5, 5, 31, 0.7) 100%);
+      pointer-events: none;
+    }
+    .founder-photo-wrap::before {
       content: '';
       position: absolute;
       inset: -2px;
       border-radius: inherit;
       background: linear-gradient(135deg, var(--accent), var(--teal));
       z-index: -1;
-      opacity: 0.3;
+      opacity: 0.4;
     }
-    .founder-text { flex: 1; }
-    .founder-text p { color: var(--gray-light); font-size: 1.05rem; line-height: 1.8; }
-    .founder-text p + p { margin-top: 16px; }
+    .founder-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .founder-role {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--teal-light);
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+    .founder-bio {
+      color: var(--gray-light);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .founder-closing {
+      text-align: center;
+      margin-top: 48px;
+      color: var(--accent-secondary);
+      font-weight: 500;
+      font-size: 1.05rem;
+    }
 
     .proof-metrics {
       display: grid;
@@ -691,8 +735,9 @@
       .section-fade { height: 60px; }
       .nav-links a:not(.nav-cta) { display: none; }
       .pillar-grid { grid-template-columns: 1fr; }
-      .founder-layout { flex-direction: column; align-items: center; text-align: center; gap: 32px; }
-      .founder-photo { width: 200px; height: 240px; }
+      .founders-grid { grid-template-columns: 1fr; gap: 48px; }
+      .founder-intro { text-align: center; }
+      .founder-photo-wrap { width: 200px; height: 260px; }
       .proof-metrics { grid-template-columns: repeat(2, 1fr); }
       .cases-grid { grid-template-columns: 1fr; }
       .stack-grid { grid-template-columns: 1fr; }
@@ -741,7 +786,7 @@
     <div class="hero-content">
       <div class="section-label reveal">AI DRIVERS</div>
       <h1 class="reveal">Build Your AI-Powered Agency <span class="shimmer">in 30 Days.</span></h1>
-      <p class="hero-sub reveal">The complete operating system, done-for-you setup, and 1-on-1 consulting from an operator running this model right now. Not a course. Not prompts. A production system install.</p>
+      <p class="hero-sub reveal">The complete operating system, done-for-you setup, and 1-on-1 consulting from operators running this model right now. Not a course. Not prompts. A production system install.</p>
       <div class="hero-video reveal">
         <span>VSL Coming Soon</span>
       </div>
@@ -821,7 +866,7 @@
         <div class="glass-card pillar-card gradient-border reveal">
           <div class="pillar-num">04</div>
           <h3>The Support</h3>
-          <p>A private channel directly with me. Not a group chat. Not a community forum. A direct line for questions, feedback, work review, and troubleshooting. For the full duration and beyond.</p>
+          <p>A private channel directly with us. Not a group chat. Not a community forum. A direct line for questions, feedback, work review, and troubleshooting. For the full duration and beyond.</p>
         </div>
       </div>
     </div>
@@ -833,19 +878,29 @@
   <section id="founder">
     <div class="container">
       <div class="section-label reveal">WHO'S BEHIND THIS</div>
-      <h2 class="section-heading reveal">Built by an operator. Not a theorist.</h2>
-      <div class="founder-layout">
-        <div class="founder-photo reveal">
-          <span>[Photo placeholder]</span>
+      <h2 class="section-heading reveal">Built by operators. Not theorists.</h2>
+      <div class="founder-intro reveal">
+        <p>AI Drivers was built by two operators who run this model every day. Not influencers. Not course creators who read about AI and repackaged it. Two founders who use these systems to run real businesses, serve real clients, and generate real revenue.</p>
+      </div>
+      <div class="founders-grid">
+        <div class="founder-card reveal">
+          <div class="founder-photo-wrap">
+            <img src="kabrin.jpg" alt="Kabrin Johal" loading="lazy">
+          </div>
+          <h3>Kabrin Johal</h3>
+          <div class="founder-role">Co-Founder / Crafted Marketing</div>
+          <p class="founder-bio">Runs Crafted Marketing, a high-ticket agency that uses AI for everything. Research. Copywriting. Funnels. Email sequences. Landing pages. Client delivery. The full stack. The system you get through AI Drivers is not something built to sell you. It's what was built to run a real agency. It powers every client engagement, every deliverable, every campaign.</p>
         </div>
-        <div class="founder-text">
-          <p class="reveal">I'm Kabrin.</p>
-          <p class="reveal">I run Crafted Marketing, a high-ticket agency that uses AI for everything. Research. Copywriting. Funnels. Email sequences. Landing pages. Client delivery. The full stack.</p>
-          <p class="reveal">The system you get through AI Drivers is not something I built to sell you. It's what I built to run my agency. It powers every client engagement, every deliverable, every campaign. Then I realized: the system itself is the product.</p>
-          <p class="reveal">I'm not an influencer teaching you what I read in a book. I'm an operator showing you what's running in production right now.</p>
-          <p class="reveal" style="color: var(--accent-secondary); font-weight: 500;">The page you're reading right now was built using the same system you'd be getting.</p>
+        <div class="founder-card reveal">
+          <div class="founder-photo-wrap">
+            <img src="elijah.jpg" alt="Elijah Bricker" loading="lazy">
+          </div>
+          <h3>Elijah Bricker</h3>
+          <div class="founder-role">Co-Founder / Arbory LLC</div>
+          <p class="founder-bio">At 18, decided not to pursue college and started as a commercial realtor for out-of-state investors. After hitting a time leverage ceiling, transitioned to creating Arbory LLC. In 14 months, generated $1M in revenue for business owners. After hitting another ceiling, went all in on systems automation with Claude Code and OpenClaw. Now runs a business that operates closed-loop automated.</p>
         </div>
       </div>
+      <p class="founder-closing reveal">The page you're reading right now was built using the same system you'd be getting.</p>
       <div class="proof-metrics">
         <div class="glass-card metric-card reveal">
           <div class="metric-num" data-count="4" data-suffix="+">0</div>
