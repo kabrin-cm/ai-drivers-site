@@ -476,10 +476,10 @@
   /* Objection cards */
   .objection-grid {
     display: flex;
-    gap: 32px;
+    gap: 24px;
     margin-top: 48px;
     width: 100%;
-    max-width: 1300px;
+    max-width: 1400px;
   }
   .objection-card {
     flex: 1;
@@ -519,13 +519,13 @@
   .objection-q {
     font-family: var(--font-head);
     font-weight: 700;
-    font-size: 24px;
+    font-size: 22px;
     color: var(--accent-secondary);
   }
   .objection-a {
-    font-size: 20px;
+    font-size: 18px;
     color: var(--gray-light);
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
   /* Qualify columns */
@@ -1011,7 +1011,7 @@
   <!-- SLIDE 18: Objections -->
   <div class="slide" data-slide="18">
     <div class="label anim d1">Let Me Handle That</div>
-    <h2 class="anim d2" style="font-size:44px;">3 Things You're Thinking</h2>
+    <h2 class="anim d2" style="font-size:44px;">4 Things You're Thinking</h2>
     <div class="objection-grid">
       <div class="objection-card anim d3">
         <div class="objection-inner" id="obj1">
@@ -1035,6 +1035,16 @@
       </div>
       <div class="objection-card anim d5">
         <div class="objection-inner" id="obj3">
+          <div class="objection-front">
+            <div class="objection-q">"Can I just do this<br>on my own?"</div>
+          </div>
+          <div class="objection-back">
+            <div class="objection-a">You can try. We've spent the last year, 3-4 hrs/day, building agents that execute real tasks. Most people get mediocre output because they don't know how to train them. That's where we come in.</div>
+          </div>
+        </div>
+      </div>
+      <div class="objection-card anim d6">
+        <div class="objection-inner" id="obj4">
           <div class="objection-front">
             <div class="objection-q">"Is $5,000 worth it?"</div>
           </div>
@@ -1189,7 +1199,7 @@
 
   // Objection card flip
   function flipNextObjection() {
-    if (objFlipped < 3) {
+    if (objFlipped < 4) {
       document.getElementById('obj' + (objFlipped + 1)).classList.add('flipped');
       objFlipped++;
     }
@@ -1201,7 +1211,7 @@
       e.preventDefault();
 
       // Special handling for objection slide (index 17)
-      if (currentSlide === 17 && objFlipped < 3) {
+      if (currentSlide === 17 && objFlipped < 4) {
         flipNextObjection();
         return;
       }
@@ -1217,7 +1227,7 @@
   // Click to advance
   document.addEventListener('click', (e) => {
     // Special handling for objection slide
-    if (currentSlide === 17 && objFlipped < 3) {
+    if (currentSlide === 17 && objFlipped < 4) {
       flipNextObjection();
       return;
     }
