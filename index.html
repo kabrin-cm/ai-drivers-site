@@ -207,7 +207,7 @@
     /* ── HERO ── */
     .hero {
       position: relative; min-height: 100vh; display: flex; align-items: center;
-      justify-content: center; text-align: center; padding: 120px 24px 80px; overflow: hidden;
+      justify-content: center; text-align: center; padding: 80px 24px 40px; overflow: hidden;
     }
     .hero-canvas { position: absolute; inset: 0; z-index: 0; }
     .hero-mesh {
@@ -228,17 +228,17 @@
 
     .hero-content { position: relative; z-index: 3; max-width: 900px; }
     .hero h1 {
-      font-family: var(--font-head); font-size: clamp(2.4rem, 7vw, 4.5rem);
-      font-weight: 800; line-height: 1.08; letter-spacing: -0.04em; margin-bottom: 20px;
+      font-family: var(--font-head); font-size: clamp(2rem, 5.5vw, 3.5rem);
+      font-weight: 800; line-height: 1.08; letter-spacing: -0.04em; margin-bottom: 16px;
     }
     .hero-sub {
       font-size: clamp(1.05rem, 2.2vw, 1.25rem); color: var(--gray-light);
-      max-width: 640px; margin: 0 auto 32px; line-height: 1.7;
+      max-width: 640px; margin: 0 auto 20px; line-height: 1.6;
     }
 
     /* ── VSL PLAYER ── */
     .vsl-wrap {
-      max-width: 780px; margin: 0 auto 36px; aspect-ratio: 16/9;
+      max-width: 700px; margin: 0 auto 24px; aspect-ratio: 16/9;
       border-radius: var(--radius-md); overflow: hidden;
       border: 1px solid var(--border-active); position: relative;
       background: var(--bg-card);
@@ -281,14 +281,65 @@
       border-radius: 50%; background: var(--accent-secondary); box-shadow: 0 0 12px var(--accent-glow);
     }
 
-    /* ── PILLAR GRID ── */
-    .pillar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
-    .pillar-card .pillar-num {
+    /* ── F1 TRACK LAYOUT ── */
+    .track-wrap {
+      position: relative; margin-top: 60px; padding: 20px 0;
+    }
+    .track-svg {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 0; pointer-events: none;
+    }
+    .track-path {
+      fill: none; stroke: rgba(123, 60, 245, 0.15); stroke-width: 60;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    .track-center-line {
+      fill: none; stroke: rgba(0, 217, 164, 0.3); stroke-width: 2;
+      stroke-dasharray: 16 12; stroke-linecap: round;
+    }
+    .track-edge-line {
+      fill: none; stroke: rgba(196, 161, 255, 0.12); stroke-width: 1;
+    }
+    .track-steps {
+      position: relative; z-index: 1; display: flex; flex-direction: column; gap: 80px;
+    }
+    .track-step {
+      max-width: 460px; position: relative;
+    }
+    .track-step:nth-child(odd) { align-self: flex-start; margin-left: 8%; }
+    .track-step:nth-child(even) { align-self: flex-end; margin-right: 8%; }
+    .track-step .pillar-num {
       font-family: var(--font-mono); font-size: 0.75rem; color: var(--teal-light);
       margin-bottom: 12px; letter-spacing: 0.1em;
     }
-    .pillar-card h3 { font-family: var(--font-head); font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; color: var(--white); }
-    .pillar-card p { color: var(--gray); font-size: 0.95rem; line-height: 1.7; }
+    .track-step h3 { font-family: var(--font-head); font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; color: var(--white); }
+    .track-step p { color: var(--gray); font-size: 0.95rem; line-height: 1.7; }
+    .track-car {
+      position: absolute; z-index: 2; width: 48px; height: 48px;
+      pointer-events: none; transition: none;
+      filter: drop-shadow(0 0 12px rgba(123, 60, 245, 0.5)) drop-shadow(0 0 24px rgba(0, 217, 164, 0.3));
+    }
+    .track-car svg { width: 100%; height: 100%; }
+    @media (max-width: 810px) {
+      .track-steps { gap: 48px; }
+      .track-step:nth-child(odd) { margin-left: 4%; }
+      .track-step:nth-child(even) { margin-right: 4%; }
+      .track-path { stroke-width: 40; }
+      .track-car { width: 36px; height: 36px; }
+    }
+
+    /* ── SPEECH BUBBLES ── */
+    .driver-bubble {
+      position: fixed; z-index: 3; pointer-events: none;
+      background: rgba(17, 17, 51, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--border-active); border-radius: 12px 12px 12px 4px;
+      padding: 8px 14px; font-family: var(--font-mono); font-size: 0.7rem;
+      color: var(--teal-light); max-width: 200px; line-height: 1.4;
+      opacity: 0; transition: opacity 0.3s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .driver-bubble.visible { opacity: 1; }
+    .driver-bubble.right { border-radius: 12px 12px 4px 12px; }
 
     /* ── FOUNDERS ── */
     .founder-intro { color: var(--gray-light); font-size: 1.05rem; line-height: 1.8; max-width: 700px; margin-top: 8px; }
@@ -461,7 +512,8 @@
       section { padding: 72px 0; }
       .section-fade { height: 60px; }
       .nav-links a:not(.nav-cta) { display: none; }
-      .pillar-grid { grid-template-columns: 1fr; }
+      .track-step:nth-child(odd) { margin-left: 4%; }
+      .track-step:nth-child(even) { margin-right: 4%; }
       .founders-grid { grid-template-columns: 1fr; gap: 48px; }
       .founder-bio { text-align: center; }
       .cred-bar { grid-template-columns: repeat(2, 1fr); }
@@ -512,7 +564,6 @@
     </div>
     <canvas class="hero-canvas"></canvas>
     <div class="hero-content">
-      <div class="section-label reveal">AI DRIVERS</div>
       <p class="hero-sub reveal" style="font-size: 1rem; color: var(--accent-secondary); margin-bottom: 16px; max-width: 600px;">The page you're reading right now was built with the same AI Agents and system you'd be getting.</p>
       <h1 class="reveal"><span class="glitch" data-text="AI Systems">AI Systems</span> That Make You <span class="shimmer">Rich.</span></h1>
       <p class="hero-sub reveal">Done-with-you AI agents and agentic workflows built and tailored to your business. We plug into your marketing, sales, and operations so you can output more, fulfill faster, and scale without adding headcount.</p>
@@ -560,26 +611,46 @@
         <p>AI Drivers is a done-with-you program. We take your business, your workflows, your standards, your SOPs, and every resource you internally have and would want to build. This works for every type of business, any type of service.</p>
         <p>We build AI agents and agentic workflows that are trained specifically on how you operate. If you have operations, marketing, or sales, we can automate it. We've pre-trained agents across every category and we customize them to your exact situation.</p>
       </div>
-      <div class="pillar-grid spotlight-grid">
-        <div class="glass-card pillar-card gradient-border reveal">
-          <div class="pillar-num">01 ONBOARD</div>
-          <h3>Assess Your Business</h3>
-          <p>We start with an onboarding call to map your entire operation. We identify where AI agents create the biggest impact on your revenue, fulfillment speed, and output quality. This isn't a template. It's a blueprint built on your business.</p>
+      <div class="track-wrap" id="track-wrap">
+        <svg class="track-svg" id="track-svg" preserveAspectRatio="none"></svg>
+        <div class="track-car" id="track-car">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="24" cy="36" rx="18" ry="4" fill="rgba(123,60,245,0.15)"/>
+            <path d="M8 22 L8 30 Q8 34 14 34 L34 34 Q40 34 40 30 L40 22 L36 16 L28 12 L20 12 L12 16 Z" fill="url(#carGrad)"/>
+            <path d="M14 16 L18 12 L30 12 L34 16 L30 18 L18 18 Z" fill="#05051f" opacity="0.7"/>
+            <ellipse cx="18" cy="18" rx="4" ry="2" fill="url(#visorGrad)" opacity="0.9"/>
+            <line x1="8" y1="26" x2="40" y2="26" stroke="#00d9a4" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="14" cy="34" r="5" fill="#1a1a3e" stroke="rgba(196,161,255,0.4)" stroke-width="1"/>
+            <circle cx="34" cy="34" r="5" fill="#1a1a3e" stroke="rgba(196,161,255,0.4)" stroke-width="1"/>
+            <circle cx="14" cy="34" r="2" fill="rgba(196,161,255,0.3)"/>
+            <circle cx="34" cy="34" r="2" fill="rgba(196,161,255,0.3)"/>
+            <defs>
+              <linearGradient id="carGrad" x1="8" y1="22" x2="40" y2="22"><stop stop-color="#5a2ab5"/><stop offset="0.5" stop-color="#7b3cf5"/><stop offset="1" stop-color="#9b6ff5"/></linearGradient>
+              <linearGradient id="visorGrad" x1="14" y1="18" x2="22" y2="18"><stop stop-color="#00d9a4"/><stop offset="1" stop-color="#7b3cf5"/></linearGradient>
+            </defs>
+          </svg>
         </div>
-        <div class="glass-card pillar-card gradient-border reveal">
-          <div class="pillar-num">02 BUILD</div>
-          <h3>Custom Agent Workflows</h3>
-          <p>We build AI agents and agentic workflows trained on your business. Marketing systems, sales pipelines, operations automation, client fulfillment. Each agent has specific skills tailored to what you need. Pre-trained on the best practices across every industry we serve.</p>
-        </div>
-        <div class="glass-card pillar-card gradient-border reveal">
-          <div class="pillar-num">03 INSTALL</div>
-          <h3>Done-For-You Setup</h3>
-          <p>Full implementation. We configure your workspace, deploy your agents, wire your automation, and test everything end-to-end. You don't need technical skills. We handle the install.</p>
-        </div>
-        <div class="glass-card pillar-card gradient-border reveal">
-          <div class="pillar-num">04 SUPPORT</div>
-          <h3>6 Months of Direct Access</h3>
-          <p>Bi-weekly one-on-one calls with both founders to keep you on track, ensure your AI Agents are performing as you want them to. Plus a private channel where you can reach Kabrin and Elijah any time. We stay in your corner until the ROI speaks for itself.</p>
+        <div class="track-steps">
+          <div class="glass-card track-step gradient-border reveal" data-step="0">
+            <div class="pillar-num">01 ONBOARD</div>
+            <h3>Assess Your Business</h3>
+            <p>We start with an onboarding call to map your entire operation. We identify where AI agents create the biggest impact on your revenue, fulfillment speed, and output quality. This isn't a template. It's a blueprint built on your business.</p>
+          </div>
+          <div class="glass-card track-step gradient-border reveal" data-step="1">
+            <div class="pillar-num">02 BUILD</div>
+            <h3>Custom Agent Workflows</h3>
+            <p>We build AI agents and agentic workflows trained on your business. Marketing systems, sales pipelines, operations automation, client fulfillment. Each agent has specific skills tailored to what you need. Pre-trained on the best practices across every industry we serve.</p>
+          </div>
+          <div class="glass-card track-step gradient-border reveal" data-step="2">
+            <div class="pillar-num">03 INSTALL</div>
+            <h3>Done-For-You Setup</h3>
+            <p>Full implementation. We configure your workspace, deploy your agents, wire your automation, and test everything end-to-end. You don't need technical skills. We handle the install.</p>
+          </div>
+          <div class="glass-card track-step gradient-border reveal" data-step="3">
+            <div class="pillar-num">04 SUPPORT</div>
+            <h3>6 Months of Direct Access</h3>
+            <p>Bi-weekly one-on-one calls with both founders to keep you on track, ensure your AI Agents are performing as you want them to. Plus a private channel where you can reach Kabrin and Elijah any time. We stay in your corner until the ROI speaks for itself.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -611,7 +682,7 @@
           </div>
           <h3>Elijah Bricker</h3>
           <div class="founder-role">Co-Founder</div>
-          <p class="founder-bio">Skipped college at 18. Started as a commercial realtor placing out-of-state investors. Hit a ceiling. Created Arbory LLC in 2025 and generated $1M in revenue for business owners in 14 months. Hit another ceiling. Went all-in on systems automation with Claude Code and OpenClaw. Built a closed-loop automated business where the systems handle the execution.</p>
+          <p class="founder-bio">Skipped college at 18. Started as a commercial realtor placing out-of-state investors, selling $10M+ of real estate in 2 years. Hit a ceiling. Created Arbory LLC in 2025 and generated $1M in revenue for business owners in 14 months. Hit another ceiling. Went all-in on systems automation with Claude Code and OpenClaw. Built a closed-loop automated business where the systems handle the execution.</p>
         </div>
       </div>
       <div class="cred-bar">
@@ -1308,11 +1379,10 @@
       // Desktop: large Pudgy-style characters (scale 1.8-2.2)
       // Mobile: smaller but still visible (scale 0.7-0.85)
       var drivers = [
-        { sel: '#problem',   side: 'right', yPct: 0.35, anim: 'lean',      leanDir: -1, scale: isMobile ? 0.75 : 1.9,  entry: 'wave' },
-        { sel: '#solution',  side: 'left',  yPct: 0.5,  anim: 'idle',      leanDir: 0,  scale: isMobile ? 0.8  : 2.0,  entry: 'wave' },
-        { sel: '#founders',  side: 'right', yPct: 0.25, anim: 'lean',      leanDir: -1, scale: isMobile ? 0.7  : 1.8,  entry: 'bounce' },
-        { sel: '#proof',     side: 'left',  yPct: 0.4,  anim: 'celebrate', leanDir: 0,  scale: isMobile ? 0.8  : 2.0,  entry: 'celebrate' },
-        { sel: '.final-cta', side: 'right', yPct: 0.5,  anim: 'bounce',   leanDir: 0,  scale: isMobile ? 0.85 : 2.2,  entry: 'celebrate' }
+        { sel: '#problem',   side: 'right', yPct: 0.35, anim: 'lean',      leanDir: -1, scale: isMobile ? 0.75 : 1.9,  entry: 'wave',      quote: 'I wrote this copy. Not bad, right?' },
+        { sel: '#founders',  side: 'right', yPct: 0.25, anim: 'lean',      leanDir: -1, scale: isMobile ? 0.7  : 1.8,  entry: 'bounce',    quote: 'They gave me photos. I built the page.' },
+        { sel: '#proof',     side: 'left',  yPct: 0.4,  anim: 'celebrate', leanDir: 0,  scale: isMobile ? 0.8  : 2.0,  entry: 'celebrate', quote: 'These numbers? I crunched them all.' },
+        { sel: '.final-cta', side: 'right', yPct: 0.5,  anim: 'bounce',   leanDir: 0,  scale: isMobile ? 0.85 : 2.2,  entry: 'celebrate', quote: 'Still scrolling? Just click the button.' }
       ];
 
       // Initialize character state
@@ -1465,6 +1535,47 @@
             wobble: sp.wobble, squashX: sp.sqX, squashY: sp.sqY,
             armL: sp.aL, armR: sp.aR, headTilt: sp.hT, visorPulse: sp.vP
           });
+
+          // ── SPEECH BUBBLE ──
+          if (d.quote && d.opacity > 0.3 && !isMobile) {
+            var bx = d.side === 'left' ? cx + d.scale * 28 : cx - d.scale * 28;
+            var by = cy + sp.bounce - d.scale * 30;
+            var maxW = 180;
+            ctx.font = '11px "Space Mono", monospace';
+            var words = d.quote.split(' ');
+            var lines = []; var line = '';
+            for (var wi = 0; wi < words.length; wi++) {
+              var test = line + (line ? ' ' : '') + words[wi];
+              if (ctx.measureText(test).width > maxW - 20) { lines.push(line); line = words[wi]; }
+              else { line = test; }
+            }
+            if (line) lines.push(line);
+            var bW = Math.min(maxW, Math.max.apply(null, lines.map(function(l) { return ctx.measureText(l).width; })) + 24);
+            var bH = lines.length * 16 + 16;
+            var bLeft = d.side === 'left' ? bx : bx - bW;
+            ctx.globalAlpha = d.opacity * 0.9;
+            ctx.fillStyle = 'rgba(17, 17, 51, 0.88)';
+            ctx.strokeStyle = 'rgba(123, 60, 245, 0.35)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.roundRect(bLeft, by - bH, bW, bH, 8);
+            ctx.fill(); ctx.stroke();
+            // Tail
+            ctx.fillStyle = 'rgba(17, 17, 51, 0.88)';
+            ctx.beginPath();
+            if (d.side === 'left') {
+              ctx.moveTo(bLeft + 8, by); ctx.lineTo(bLeft - 4, by + 8); ctx.lineTo(bLeft + 18, by);
+            } else {
+              ctx.moveTo(bLeft + bW - 18, by); ctx.lineTo(bLeft + bW + 4, by + 8); ctx.lineTo(bLeft + bW - 8, by);
+            }
+            ctx.fill();
+            // Text
+            ctx.fillStyle = '#5aecc5';
+            ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+            for (var li = 0; li < lines.length; li++) {
+              ctx.fillText(lines[li], bLeft + 12, by - bH + 10 + li * 16);
+            }
+          }
           ctx.globalAlpha = 1;
         }
 
@@ -1549,6 +1660,116 @@
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
     allReveals.forEach(function(el) { revealObs.observe(el); });
+
+    // ── F1 TRACK CAR ANIMATION ──
+    (function() {
+      var wrap = document.getElementById('track-wrap');
+      var svg = document.getElementById('track-svg');
+      var carEl = document.getElementById('track-car');
+      if (!wrap || !svg || !carEl) return;
+
+      var steps = wrap.querySelectorAll('.track-step');
+      var trackPath, centerLine, edgeLine1, edgeLine2;
+
+      function buildTrack() {
+        var wrapRect = wrap.getBoundingClientRect();
+        var wrapTop = wrap.offsetTop;
+        var points = [];
+
+        for (var i = 0; i < steps.length; i++) {
+          var step = steps[i];
+          var stepRect = step.getBoundingClientRect();
+          var cx = step.offsetLeft + step.offsetWidth / 2;
+          var cy = step.offsetTop + step.offsetHeight / 2;
+          points.push({ x: cx, y: cy });
+        }
+
+        // Build smooth S-curve path through card centers
+        var svgW = wrap.offsetWidth;
+        var svgH = wrap.offsetHeight;
+        svg.setAttribute('viewBox', '0 0 ' + svgW + ' ' + svgH);
+        svg.style.width = svgW + 'px';
+        svg.style.height = svgH + 'px';
+
+        // Start above first card, end below last
+        var startY = Math.max(0, points[0].y - 80);
+        var endY = Math.min(svgH, points[points.length - 1].y + 80);
+
+        var d = 'M ' + points[0].x + ' ' + startY;
+        d += ' L ' + points[0].x + ' ' + points[0].y;
+
+        for (var j = 0; j < points.length - 1; j++) {
+          var p1 = points[j];
+          var p2 = points[j + 1];
+          var midY = (p1.y + p2.y) / 2;
+          d += ' C ' + p1.x + ' ' + midY + ', ' + p2.x + ' ' + midY + ', ' + p2.x + ' ' + p2.y;
+        }
+
+        d += ' L ' + points[points.length - 1].x + ' ' + endY;
+
+        svg.innerHTML = '';
+        // Track pavement (wide)
+        var road = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        road.setAttribute('d', d);
+        road.setAttribute('class', 'track-path');
+        svg.appendChild(road);
+
+        // Edge lines
+        var edge1 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        edge1.setAttribute('d', d);
+        edge1.setAttribute('class', 'track-edge-line');
+        edge1.setAttribute('stroke-width', '1');
+        edge1.setAttribute('transform', 'translate(-30, 0)');
+        svg.appendChild(edge1);
+
+        var edge2 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        edge2.setAttribute('d', d);
+        edge2.setAttribute('class', 'track-edge-line');
+        edge2.setAttribute('stroke-width', '1');
+        edge2.setAttribute('transform', 'translate(30, 0)');
+        svg.appendChild(edge2);
+
+        // Center dashed line
+        var center = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        center.setAttribute('d', d);
+        center.setAttribute('class', 'track-center-line');
+        svg.appendChild(center);
+
+        trackPath = road;
+      }
+
+      function positionCar() {
+        if (!trackPath) return;
+        var wrapRect = wrap.getBoundingClientRect();
+        var wrapH = wrapRect.height;
+        var scrollTop = -wrapRect.top;
+        var viewH = window.innerHeight;
+
+        // Progress: 0 when section enters viewport, 1 when it leaves
+        var progress = (scrollTop + viewH * 0.5) / (wrapH + viewH * 0.5);
+        progress = Math.max(0, Math.min(1, progress));
+
+        var pathLen = trackPath.getTotalLength();
+        var point = trackPath.getPointAtLength(progress * pathLen);
+
+        // Get direction for rotation
+        var aheadDist = Math.min(progress * pathLen + 5, pathLen);
+        var ahead = trackPath.getPointAtLength(aheadDist);
+        var angle = Math.atan2(ahead.y - point.y, ahead.x - point.x) * (180 / Math.PI);
+
+        carEl.style.transform = 'translate(' + (point.x - 24) + 'px, ' + (point.y - 24) + 'px) rotate(' + angle + 'deg)';
+
+        // Show/hide based on section visibility
+        var isVisible = wrapRect.top < viewH && wrapRect.bottom > 0;
+        carEl.style.opacity = isVisible ? '1' : '0';
+      }
+
+      // Build on load and resize
+      buildTrack();
+      positionCar();
+      window.addEventListener('resize', function() { buildTrack(); positionCar(); });
+      window.addEventListener('scroll', positionCar, { passive: true });
+    })();
 
     // ── MOBILE CTA ──
     var mobileCta = document.querySelector('.mobile-cta');
