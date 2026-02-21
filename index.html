@@ -564,9 +564,10 @@
     </div>
     <canvas class="hero-canvas"></canvas>
     <div class="hero-content">
+      <p class="hero-sub reveal" style="font-size: 0.85rem; color: var(--gray); margin-bottom: 8px; max-width: 560px; letter-spacing: 0.01em;">For business owners who've hit the ceiling on what their team can produce.</p>
       <p class="hero-sub reveal" style="font-size: 1rem; color: var(--accent-secondary); margin-bottom: 16px; max-width: 600px;">The page you're reading right now was built with the same AI Agents and system you'd be getting.</p>
       <h1 class="reveal"><span class="glitch" data-text="AI Systems">AI Systems</span> That Make You <span class="shimmer">Rich.</span></h1>
-      <p class="hero-sub reveal">Done-with-you AI agents and agentic workflows built and tailored to your business. We plug into your marketing, sales, and operations so you can output more, fulfill faster, and scale without adding headcount.</p>
+      <p class="hero-sub reveal">Done-with-you AI agents and agentic workflows built and tailored to your business, trained the way you want, with your company's SOPs, for your services or deliverables. We then plug into your marketing, sales, and operations so you can output more, fulfill faster, and scale without adding headcount.</p>
       <div class="vsl-wrap reveal">
         <div class="vsl-placeholder">
           <div class="play-icon"></div>
@@ -1380,8 +1381,8 @@
       // Mobile: smaller but still visible (scale 0.7-0.85)
       var drivers = [
         { sel: '#problem',   side: 'right', yPct: 0.35, anim: 'lean',      leanDir: -1, scale: isMobile ? 0.75 : 1.9,  entry: 'wave',      quote: 'I wrote this copy. Not bad, right?' },
-        { sel: '#founders',  side: 'right', yPct: 0.25, anim: 'lean',      leanDir: -1, scale: isMobile ? 0.7  : 1.8,  entry: 'bounce',    quote: 'They gave me photos. I built the page.' },
-        { sel: '#proof',     side: 'left',  yPct: 0.4,  anim: 'celebrate', leanDir: 0,  scale: isMobile ? 0.8  : 2.0,  entry: 'celebrate', quote: 'These numbers? I crunched them all.' },
+        { sel: '#founders',  side: 'right', yPct: 0.25, anim: 'lean',      leanDir: -1, scale: isMobile ? 0.7  : 1.8,  entry: 'bounce',    quote: 'I made the photos, and built the page.' },
+        { sel: '#proof',     side: 'left',  yPct: 0.4,  anim: 'celebrate', leanDir: 0,  scale: isMobile ? 0.8  : 2.0,  entry: 'celebrate', quote: 'All the designs and elements are made by me.' },
         { sel: '.final-cta', side: 'right', yPct: 0.5,  anim: 'bounce',   leanDir: 0,  scale: isMobile ? 0.85 : 2.2,  entry: 'celebrate', quote: 'Still scrolling? Just click the button.' }
       ];
 
@@ -1537,22 +1538,29 @@
           });
 
           // ── SPEECH BUBBLE ──
-          if (d.quote && d.opacity > 0.3 && !isMobile) {
+          if (d.quote && d.opacity > 0.3) {
+            var bFontSize = isMobile ? 9 : 11;
+            var bLineH = isMobile ? 13 : 16;
             var bx = d.side === 'left' ? cx + d.scale * 28 : cx - d.scale * 28;
             var by = cy + sp.bounce - d.scale * 30;
-            var maxW = 180;
-            ctx.font = '11px "Space Mono", monospace';
+            var maxW = isMobile ? 140 : 180;
+            ctx.font = bFontSize + 'px "Space Mono", monospace';
             var words = d.quote.split(' ');
             var lines = []; var line = '';
             for (var wi = 0; wi < words.length; wi++) {
               var test = line + (line ? ' ' : '') + words[wi];
-              if (ctx.measureText(test).width > maxW - 20) { lines.push(line); line = words[wi]; }
+              if (ctx.measureText(test).width > maxW - 16) { lines.push(line); line = words[wi]; }
               else { line = test; }
             }
             if (line) lines.push(line);
-            var bW = Math.min(maxW, Math.max.apply(null, lines.map(function(l) { return ctx.measureText(l).width; })) + 24);
-            var bH = lines.length * 16 + 16;
+            var bW = Math.min(maxW, Math.max.apply(null, lines.map(function(l) { return ctx.measureText(l).width; })) + 20);
+            var bH = lines.length * bLineH + 14;
             var bLeft = d.side === 'left' ? bx : bx - bW;
+            // Clamp bubble to screen edges on mobile
+            if (isMobile) {
+              if (bLeft < 4) bLeft = 4;
+              if (bLeft + bW > W - 4) bLeft = W - 4 - bW;
+            }
             ctx.globalAlpha = d.opacity * 0.9;
             ctx.fillStyle = 'rgba(17, 17, 51, 0.88)';
             ctx.strokeStyle = 'rgba(123, 60, 245, 0.35)';
@@ -1573,7 +1581,7 @@
             ctx.fillStyle = '#5aecc5';
             ctx.textAlign = 'left'; ctx.textBaseline = 'top';
             for (var li = 0; li < lines.length; li++) {
-              ctx.fillText(lines[li], bLeft + 12, by - bH + 10 + li * 16);
+              ctx.fillText(lines[li], bLeft + 10, by - bH + 8 + li * bLineH);
             }
           }
           ctx.globalAlpha = 1;
