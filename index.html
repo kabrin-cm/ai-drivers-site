@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>AI Drivers | Fully Automated AI Team in Less Than 5 Days</title>
-  <meta name="description" content="We assess your business, build a custom AI system trained on your operations, and install it for you. Two founders. One private channel. ROI back in 90 days.">
-  <meta property="og:title" content="AI Drivers | Fully Automated AI Team in Less Than 5 Days">
-  <meta property="og:description" content="Custom AI system team built, installed, and running inside your business in under 5 days. $4,000.">
+  <title>AI Drivers | AI Systems That Make You Rich</title>
+  <meta name="description" content="Done-with-you AI systems built and tailored to your business. AI agents and agentic workflows for marketing, sales, and operations. $5,000. 60-day ROI guarantee.">
+  <meta property="og:title" content="AI Drivers | AI Systems That Make You Rich">
+  <meta property="og:description" content="Done-with-you AI agents and agentic workflows built and tailored to your business. $5,000. 60-day ROI guarantee.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,8 +71,8 @@
     }
     @keyframes grainDrift { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(-5%, -5%); } 50% { transform: translate(5%, 5%); } 75% { transform: translate(-2%, 3%); } }
 
-    /* ── DRIVING CANVAS ── */
-    .drive-canvas { position: fixed; inset: 0; z-index: 2; pointer-events: none; }
+    /* ── F1 DRIVER CANVAS ── */
+    .f1-canvas { position: fixed; inset: 0; z-index: 2; pointer-events: none; }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
@@ -207,7 +207,7 @@
     /* ── HERO ── */
     .hero {
       position: relative; min-height: 100vh; display: flex; align-items: center;
-      justify-content: center; text-align: center; padding: 140px 24px 100px; overflow: hidden;
+      justify-content: center; text-align: center; padding: 120px 24px 80px; overflow: hidden;
     }
     .hero-canvas { position: absolute; inset: 0; z-index: 0; }
     .hero-mesh {
@@ -228,18 +228,38 @@
 
     .hero-content { position: relative; z-index: 3; max-width: 900px; }
     .hero h1 {
-      font-family: var(--font-head); font-size: clamp(2.8rem, 8vw, 5.5rem);
-      font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 28px;
+      font-family: var(--font-head); font-size: clamp(2.4rem, 7vw, 4.5rem);
+      font-weight: 800; line-height: 1.08; letter-spacing: -0.04em; margin-bottom: 20px;
     }
     .hero-sub {
       font-size: clamp(1rem, 2vw, 1.15rem); color: var(--gray-light);
-      max-width: 640px; margin: 0 auto 40px; line-height: 1.7;
+      max-width: 640px; margin: 0 auto 32px; line-height: 1.7;
     }
-    .hero-video {
-      max-width: 700px; margin: 0 auto 40px; aspect-ratio: 16/9;
-      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md);
+
+    /* ── VSL PLAYER ── */
+    .vsl-wrap {
+      max-width: 780px; margin: 0 auto 36px; aspect-ratio: 16/9;
+      border-radius: var(--radius-md); overflow: hidden;
+      border: 1px solid var(--border-active); position: relative;
+      background: var(--bg-card);
+      box-shadow: 0 8px 60px rgba(123, 60, 245, 0.15), 0 4px 24px rgba(0,0,0,0.4);
+    }
+    .vsl-wrap iframe, .vsl-wrap video { width: 100%; height: 100%; border: none; display: block; }
+    .vsl-placeholder {
+      width: 100%; height: 100%; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px;
+      color: var(--gray); font-size: 0.9rem;
+    }
+    .vsl-placeholder .play-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--teal));
       display: flex; align-items: center; justify-content: center;
-      color: var(--gray); font-size: 0.875rem;
+      box-shadow: 0 0 40px var(--accent-glow);
+    }
+    .vsl-placeholder .play-icon::after {
+      content: ''; width: 0; height: 0;
+      border-left: 20px solid var(--white); border-top: 12px solid transparent; border-bottom: 12px solid transparent;
+      margin-left: 4px;
     }
 
     /* ── SECTIONS ── */
@@ -344,6 +364,7 @@
     .pricing-block .price { font-family: var(--font-head); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 8px; }
     .pricing-block .price-sub { color: var(--gray); font-size: 0.95rem; margin-bottom: 36px; }
     .pricing-block .roi-text { color: var(--gray-light); font-size: 0.95rem; max-width: 600px; margin: 24px auto 0; line-height: 1.7; }
+    .pricing-block .flex-note { color: var(--gray); font-size: 0.8rem; margin-top: 16px; font-style: italic; }
 
     .payment-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 720px; margin: 0 auto 32px; }
     .payment-option {
@@ -460,13 +481,13 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
       .reveal { opacity: 1; transform: none; }
-      .hero-canvas, .drive-canvas { display: none; }
+      .hero-canvas, .f1-canvas { display: none; }
     }
   </style>
 </head>
 <body>
   <div class="scroll-progress"></div>
-  <canvas class="drive-canvas"></canvas>
+  <canvas class="f1-canvas"></canvas>
 
   <!-- NAV -->
   <nav>
@@ -492,11 +513,16 @@
     <canvas class="hero-canvas"></canvas>
     <div class="hero-content">
       <div class="section-label reveal">AI DRIVERS</div>
-      <h1 class="reveal"><span class="glitch" data-text="Get a Fully Automated AI Team">Get a Fully Automated AI Team</span> Installed in Your Business. <span class="shimmer">In Less Than 5 Days.</span></h1>
-      <p class="hero-sub reveal">We assess your business, build a custom AI system trained on your operations, and install it for you. Two founders. One private channel. ROI back in 90 days or you shouldn't do this.</p>
-      <div class="hero-video reveal"><span>VSL Coming Soon</span></div>
+      <h1 class="reveal"><span class="glitch" data-text="AI Systems">AI Systems</span> That Make You <span class="shimmer">Rich.</span></h1>
+      <p class="hero-sub reveal">Done-with-you AI agents and agentic workflows built and tailored to your business. We plug into your marketing, sales, and operations so you can output more, fulfill faster, and scale without adding headcount.</p>
+      <div class="vsl-wrap reveal">
+        <div class="vsl-placeholder">
+          <div class="play-icon"></div>
+          <span>Watch the full breakdown</span>
+        </div>
+      </div>
       <a href="#apply" class="btn magnetic reveal">Get Started <span>&rarr;</span></a>
-      <p class="friction reveal">Limited spots. We build every system by hand.</p>
+      <p class="friction reveal">$5,000. 60-day ROI guarantee. Limited spots.</p>
     </div>
   </section>
 
@@ -506,38 +532,19 @@
   <section id="problem">
     <div class="container">
       <div class="section-label reveal">THE PROBLEM</div>
-      <h2 class="section-heading reveal">Everyone says AI is the future of business. <span class="shimmer">Nobody actually installs it for you.</span></h2>
+      <h2 class="section-heading reveal">You're running out of time. <span class="shimmer">Your team can't keep up.</span></h2>
       <div class="section-body reveal">
-        <p>You've seen the headlines.</p>
-        <p>Y Combinator made AI-powered agencies a formal investment category. Anthropic's CEO predicts a one-person billion-dollar company by 2026.</p>
-        <p>And you're sitting there with a real business, real clients, real revenue. Thinking: okay, but HOW does this actually plug into what I do every day?</p>
-        <p>You've tried ChatGPT. Maybe you bought a course. Maybe you spent a weekend watching YouTube tutorials and ended up with a folder full of prompts that don't connect to anything.</p>
-        <p>But nothing changed.</p>
+        <p>You're good at what you do. But there are only so many hours in a day, so many people you can hire, and so much quality you can maintain when everything runs through you.</p>
+        <p>Labor costs keep climbing. The talent you hire takes months to train and still doesn't produce at your standard. And every new client or project means more of YOUR time, not less.</p>
+        <p>Meanwhile, you keep hearing about AI. You've tried ChatGPT. Maybe bought a course. But nothing actually connected to your business in a way that moved the needle.</p>
       </div>
       <ul class="pain-bullets">
-        <li class="reveal">You have the skills. You don't have the infrastructure. Your expertise is real. Your output is capped by how fast you can personally produce.</li>
-        <li class="reveal">You're paying for tools that don't talk to each other. Subscriptions stack up. Workflows don't.</li>
-        <li class="reveal">You keep starting over. Every new AI tool means another learning curve, another half-built system, another abandoned experiment.</li>
-        <li class="reveal">You watch technical founders on Twitter build million-dollar operations with 3 people while you grind through deliverables one at a time.</li>
-        <li class="reveal">The "AI for business" content online is surface-level. Prompt lists. ChatGPT screenshots. Nothing that shows you how to build an actual operating system for YOUR business.</li>
+        <li class="reveal">You're capped by your own capacity. Every new client means more of your time, and there's a hard ceiling on how much you can personally produce.</li>
+        <li class="reveal">Labor costs are eating your margins. Hiring is slow, training is expensive, turnover is constant. And the output still doesn't match your standard.</li>
+        <li class="reveal">Quality drops when you try to scale. The more you delegate, the more you end up redoing. You can't clone yourself, and nobody does it like you do.</li>
+        <li class="reveal">You've tried AI tools but nothing sticks. Prompt lists, ChatGPT wrappers, weekend experiments. None of it plugged into your actual workflows.</li>
+        <li class="reveal">Your competitors are already figuring this out. The operators who crack AI-powered fulfillment first will dominate their market. That window is closing.</li>
       </ul>
-    </div>
-  </section>
-
-  <div class="section-fade"></div>
-
-  <!-- NARRATIVE BRIDGE -->
-  <section id="opportunity">
-    <div class="container">
-      <div class="section-label reveal">THE OPPORTUNITY</div>
-      <h2 class="section-heading reveal">The smartest investors in the world validated this model. Nobody built the implementation <span class="shimmer">for the rest of us.</span></h2>
-      <div class="section-body">
-        <p class="reveal">Y Combinator's latest Request for Startups includes "AI-Powered Agencies" as a formal category. Their thesis: businesses of the future will look like software companies, with software margins. Tiny teams generating millions.</p>
-        <p class="reveal">But Y Combinator invests $500K per company and takes equity. They accept 200 founders per batch out of tens of thousands. And their model assumes you're a technical founder who can code.</p>
-        <p class="reveal">If you're a business owner, consultant, or operator with real domain expertise but not a computer science degree, their pathway doesn't exist for you.</p>
-        <p class="reveal">The demand is real. The opportunity is validated by the best investors on the planet. The gap is implementation.</p>
-        <p class="reveal" style="color: var(--white); font-weight: 600;">That's what AI Drivers is. We took the thesis and built the bridge.</p>
-      </div>
     </div>
   </section>
 
@@ -547,31 +554,31 @@
   <section id="solution">
     <div class="container">
       <div class="section-label reveal">HOW IT WORKS</div>
-      <h2 class="section-heading reveal">Your business. AI-powered. <span class="shimmer">Fully operational in less than 5 days.</span></h2>
+      <h2 class="section-heading reveal">We build AI systems into your business. <span class="shimmer">You keep the results.</span></h2>
       <div class="section-body reveal">
-        <p>AI Drivers is not a course. Not a prompt library. Not a community where you figure it out on your own.</p>
-        <p>We assess your business, build a custom AI system trained on your specific operations, install it for you, and then stay in your corner for 6 full months to make sure it works.</p>
+        <p>AI Drivers is a done-with-you program. We take your business, your workflows, your standards, and we build AI agents and agentic workflows that are trained specifically on how you operate.</p>
+        <p>This works for every type of business. Info products, agencies, brick-and-mortar, service businesses, e-commerce. If you have operations, marketing, or sales, we can automate it. We've pre-trained agents across every category and we customize them to your exact situation.</p>
       </div>
       <div class="pillar-grid spotlight-grid">
         <div class="glass-card pillar-card gradient-border reveal">
-          <div class="pillar-num">01 ASSESS</div>
-          <h3>Map Your Business</h3>
-          <p>We map your operations, identify the highest-value automation opportunities, and design a system architecture built specifically for how you work. Not a generic template. A blueprint for your business.</p>
+          <div class="pillar-num">01 ONBOARD</div>
+          <h3>Assess Your Business</h3>
+          <p>We start with an onboarding call to map your entire operation. We identify where AI agents create the biggest impact on your revenue, fulfillment speed, and output quality. This isn't a template. It's a blueprint built on your business.</p>
         </div>
         <div class="glass-card pillar-card gradient-border reveal">
           <div class="pillar-num">02 BUILD</div>
-          <h3>Custom AI System</h3>
-          <p>We build your custom AI system. Agents trained on your business, structured workflows matching your operations, quality controls tuned to your standards. This is a production system, not a demo.</p>
+          <h3>Custom Agent Workflows</h3>
+          <p>We build AI agents and agentic workflows trained on your business. Marketing systems, sales pipelines, operations automation, client fulfillment. Each agent has specific skills tailored to what you need. Pre-trained on the best practices across every industry we serve.</p>
         </div>
         <div class="glass-card pillar-card gradient-border reveal">
           <div class="pillar-num">03 INSTALL</div>
           <h3>Done-For-You Setup</h3>
-          <p>Full implementation. We configure your workspace, deploy your agents, set up your automation, and test everything end-to-end. Operational in less than 5 days. No technical skills required.</p>
+          <p>Full implementation. We configure your workspace, deploy your agents, wire your automation, and test everything end-to-end. You don't need technical skills. We handle the install.</p>
         </div>
         <div class="glass-card pillar-card gradient-border reveal">
           <div class="pillar-num">04 SUPPORT</div>
-          <h3>6 Months of Access</h3>
-          <p>Direct access to both founders through a private channel. 2x weekly coaching calls. Hands-on troubleshooting. We don't hand you a system and disappear. We stay until you've gotten your money back and then some.</p>
+          <h3>6 Months of Direct Access</h3>
+          <p>Bi-weekly one-on-one calls with both founders to keep you on track. Plus a private channel where you can reach Kabrin and Elijah any time. We stay in your corner until the ROI speaks for itself.</p>
         </div>
       </div>
     </div>
@@ -586,7 +593,7 @@
       <h2 class="section-heading reveal"><span class="glitch" data-text="Built by operators.">Built by operators.</span> Not theorists.</h2>
       <div class="founder-intro reveal">
         <p>Most people selling "AI for business" have never run a business that depends on AI. They teach frameworks they read about. They sell courses about things they haven't done.</p>
-        <p>We built AI Drivers because we needed it for ourselves first. Then we realized: the system is the product.</p>
+        <p>We built AI Drivers because we needed it for ourselves first. We bridge the gap between people who don't understand the tech and the massive opportunity that AI agents and agentic workflows represent for marketing, sales, and operations.</p>
       </div>
       <div class="founders-grid">
         <div class="founder-card reveal">
@@ -595,7 +602,7 @@
           </div>
           <h3>Kabrin Johal</h3>
           <div class="founder-role">Co-Founder</div>
-          <p class="founder-bio">Started in fitness. Opened and operated 11 Orange Theory Fitness franchise locations. Opened them, operated them, exited all of them in 2020. Went online. Tried dropshipping. Pivoted to high-ticket dropshipping and sold to a major Vegas hotel chain. April 2024: launched Crafted Marketing and built the entire fulfillment engine on AI. $3M+ in total revenue generated. All completed through AI systems.</p>
+          <p class="founder-bio">Started in fitness. Opened and operated 11 Orange Theory Fitness franchise locations, managing 400+ staff across all locations. Exited in 2020. Went online. Tried dropshipping. Pivoted to high-ticket dropshipping and sold to a major Vegas hotel chain. April 2024: launched Crafted Marketing and built the entire fulfillment engine on AI. $3M+ in total revenue generated across marketing, sales, and operations. All fulfilled through AI systems.</p>
         </div>
         <div class="founder-card reveal">
           <div class="founder-photo-wrap gradient-border">
@@ -616,12 +623,12 @@
           <div class="cred-label">Franchise locations opened and operated</div>
         </div>
         <div class="glass-card cred-item reveal">
-          <div class="cred-num" data-count="2">0</div>
-          <div class="cred-label">Businesses running closed-loop automated</div>
+          <div class="cred-num" data-count="400" data-suffix="+">0</div>
+          <div class="cred-label">Staff managed across brick-and-mortar operations</div>
         </div>
         <div class="glass-card cred-item reveal">
-          <div class="cred-num" data-count="5" data-suffix=" days">0</div>
-          <div class="cred-label">From assessment to operational</div>
+          <div class="cred-num" data-count="36" data-prefix="$" data-suffix="K">0</div>
+          <div class="cred-label">Revenue in first soft launch week</div>
         </div>
       </div>
       <p class="founder-closing reveal">The page you're reading right now was built with the same system you'd be getting.</p>
@@ -636,7 +643,7 @@
       <div class="section-label reveal">THE SYSTEM</div>
       <h2 class="section-heading reveal">This is what it does. <span class="shimmer">Not what we say it does.</span></h2>
       <div class="section-body reveal">
-        <p>We don't have 47 testimonials from students yet. We're not going to fake it. Here's what we do have: two businesses that run on this system every day, and the numbers to prove it works.</p>
+        <p>We don't have 47 testimonials from students yet. We're not going to fake it. Here's what we do have: two businesses that run on this system every day, $36K in revenue from our first soft launch week, and the numbers to prove it works.</p>
       </div>
       <div class="proof-grid">
         <div class="glass-card proof-card gradient-border reveal">
@@ -644,16 +651,16 @@
           <div class="proof-label">Combined revenue through AI-powered systems</div>
         </div>
         <div class="glass-card proof-card gradient-border reveal">
-          <div class="proof-num" data-prefix="$" data-count="1" data-suffix="M">0</div>
-          <div class="proof-label">Revenue for clients in 14 months (Arbory LLC)</div>
+          <div class="proof-num" data-prefix="$" data-count="36" data-suffix="K">0</div>
+          <div class="proof-label">Revenue generated in first soft launch week</div>
         </div>
         <div class="glass-card proof-card gradient-border reveal">
-          <div class="proof-num" data-prefix="<" data-count="5" data-suffix=" days">0</div>
-          <div class="proof-label">From assessment to fully operational AI system</div>
+          <div class="proof-num" data-count="60" data-suffix=" days">0</div>
+          <div class="proof-label">ROI guarantee on your investment</div>
         </div>
       </div>
       <div class="system-handles reveal">
-        <h3>What the system handles:</h3>
+        <h3>What the AI agents handle:</h3>
         <ul class="handles-grid">
           <li>Client research and market analysis</li>
           <li>Copywriting and content production</li>
@@ -666,7 +673,7 @@
         </ul>
       </div>
       <div class="section-body reveal" style="margin-top: 32px;">
-        <p>This is not a prototype. Both founders operate their primary businesses on this system. When we say "built by operators," we mean it was built under pressure, with real clients, real deadlines, and real money on the line.</p>
+        <p>This works for any business type. Info products, agencies, brick-and-mortar, service businesses, wealth management. We've pre-trained agents across marketing, sales, operations, and tech. We plug them into your business and tailor everything to how you operate.</p>
       </div>
     </div>
   </section>
@@ -680,44 +687,44 @@
       <h2 class="section-heading reveal">Everything you need. <span class="shimmer">Nothing you don't.</span></h2>
       <div class="stack-grid">
         <div class="glass-card stack-card gradient-border reveal">
-          <h3>Full Business Assessment</h3>
-          <p>We map your operations and identify exactly where AI systems create the most impact. Not generic recommendations. A specific map of your highest-ROI automation opportunities.</p>
+          <h3>Onboarding Call + Business Assessment</h3>
+          <p>We map your entire operation, identify the highest-value automation opportunities, and design a system architecture built specifically for your business. Not generic. Not templated. Yours.</p>
           <div class="stack-value">Value: $2,500</div>
         </div>
         <div class="glass-card stack-card gradient-border reveal">
-          <h3>Custom AI System Build</h3>
-          <p>Agents, workflows, quality controls, and automation built on YOUR business processes, YOUR data, YOUR voice. Not a template. A custom build.</p>
+          <h3>Custom AI Agent Workflows</h3>
+          <p>AI agents and agentic workflows built on YOUR business, YOUR data, YOUR processes. Pre-trained on marketing, sales, operations, and tech. We customize every agent to your exact situation.</p>
           <div class="stack-value">Value: $5,000</div>
         </div>
         <div class="glass-card stack-card gradient-border reveal">
-          <h3>DFY Installation (Less Than 5 Days)</h3>
-          <p>We configure your workspace, deploy your agents, wire your automation, and test everything. Zero technical skills required on your end.</p>
+          <h3>Done-For-You Installation</h3>
+          <p>We configure your workspace, deploy your agents, wire your automation, and test everything end-to-end. Zero technical skills required on your end.</p>
           <div class="stack-value">Value: $3,000</div>
         </div>
         <div class="glass-card stack-card gradient-border reveal">
-          <h3>Private Channel (6 Months)</h3>
-          <p>Direct access to both Kabrin and Elijah. Not a group chat. Not a community forum. A private line to both founders for 6 full months.</p>
+          <h3>6 Months One-on-One Access</h3>
+          <p>Direct private channel to both Kabrin and Elijah. Not a group chat. Not a community forum. A private line to both founders for 6 full months. Reach out any time.</p>
           <div class="stack-value">Value: $6,000</div>
         </div>
         <div class="glass-card stack-card gradient-border reveal">
-          <h3>2x Weekly Coaching Calls</h3>
-          <p>Both founders on every call. Strategy, implementation, troubleshooting. That's roughly 48 calls with the people who designed the system.</p>
+          <h3>Bi-Weekly One-on-One Calls</h3>
+          <p>Both founders on every call. Strategy, implementation, troubleshooting. We keep you on track with the timeline we've set for your business. That's roughly 48 calls over 6 months.</p>
           <div class="stack-value">Value: $4,800</div>
         </div>
         <div class="glass-card stack-card gradient-border reveal">
           <h3>Video Module Library</h3>
-          <p>Full training modules covering every aspect of operating and expanding your AI system. Included at no additional cost.</p>
+          <p>Full training modules covering every aspect of operating and expanding your AI system. Step-by-step walkthroughs so you can revisit anything at your own pace.</p>
           <div class="stack-value">Value: $1,500</div>
         </div>
         <div class="glass-card stack-card gradient-border reveal">
           <h3>Hands-On Troubleshooting</h3>
-          <p>Something breaks? We fix it. This isn't "submit a ticket." Real support from the people who built the system.</p>
+          <p>Something breaks? We fix it. Something's not performing? We optimize it. This isn't "submit a ticket." Real support from the people who built the system.</p>
           <div class="stack-value">Value: $2,500</div>
         </div>
         <div class="glass-card stack-card gradient-border reveal">
-          <h3>Mastermind Access</h3>
-          <p>Connect with other operators running AI systems. Share wins, swap strategies. Not 10,000 strangers. A tight group of builders.</p>
-          <div class="stack-value">Value: $1,200</div>
+          <h3>Mastermind Ticket (3-Day Event)</h3>
+          <p>One ticket to our in-person mastermind. Two locations to be announced. Three days where we take care of everything. Come out, connect with other operators, and level up.</p>
+          <div class="stack-value">Value: $3,000</div>
         </div>
         <div class="glass-card stack-card gradient-border reveal">
           <h3>Lifetime Agent Access</h3>
@@ -727,27 +734,28 @@
       </div>
 
       <div class="pricing-block reveal" id="apply">
-        <div class="total-value">Total Value: <s>$29,500+</s></div>
-        <div class="price shimmer">$4,000</div>
+        <div class="total-value">Total Value: <s>$31,300+</s></div>
+        <div class="price shimmer">$5,000</div>
         <div class="price-sub">Choose your payment option</div>
         <div class="payment-options">
           <a href="https://whop.com/checkout/plan_DCtuvqLI723pD" class="payment-option featured" target="_blank" rel="noopener">
             <div class="po-badge">Best Value</div>
-            <div class="po-price">$4,000</div>
+            <div class="po-price">$5,000</div>
             <div class="po-detail">Pay in full</div>
           </a>
           <a href="https://whop.com/checkout/plan_tSnNLDp3Hfg2J" class="payment-option" target="_blank" rel="noopener">
             <div class="po-badge">2 Payments</div>
-            <div class="po-price">$2,000<span style="font-size:0.6em;font-weight:400">/mo</span></div>
+            <div class="po-price">$2,500<span style="font-size:0.6em;font-weight:400">/mo</span></div>
             <div class="po-detail">2 monthly payments</div>
           </a>
           <a href="https://whop.com/checkout/plan_1Ixm37N92R4HO" class="payment-option" target="_blank" rel="noopener">
             <div class="po-badge">3 Payments</div>
-            <div class="po-price">$1,300<span style="font-size:0.6em;font-weight:400">/mo</span></div>
+            <div class="po-price">$1,667<span style="font-size:0.6em;font-weight:400">/mo</span></div>
             <div class="po-detail">3 monthly payments</div>
           </a>
         </div>
-        <p class="roi-text">The average client makes their investment back within the first 90 days. Close one additional client, take on one more project, or save 15+ hours per week on operations. The math handles itself. And the system doesn't expire.</p>
+        <p class="roi-text">60-day ROI guarantee. The system should generate or save you at least $5,000 through new revenue, saved time, increased capacity, or reduced labor costs. If it doesn't, we keep working with you for free until it does.</p>
+        <p class="flex-note">Flexible payment options available soon.</p>
       </div>
     </div>
   </section>
@@ -763,21 +771,21 @@
         <div class="qual-col for-you glass-card reveal">
           <h3>This is for you if...</h3>
           <ul class="qual-list">
-            <li><span class="icon">&#10003;</span> You run a business, agency, or consultancy and want to multiply output without multiplying headcount</li>
-            <li><span class="icon">&#10003;</span> You have real domain expertise and want AI systems built around it</li>
-            <li><span class="icon">&#10003;</span> You're tired of buying tools that don't connect and starting over every few months</li>
-            <li><span class="icon">&#10003;</span> You're willing to invest 5 days for the install and show up for coaching calls</li>
-            <li><span class="icon">&#10003;</span> You want direct access to two founders who run this system, not a pre-recorded course</li>
+            <li><span class="icon">&#10003;</span> You run a business and want to multiply output without multiplying headcount or labor costs</li>
+            <li><span class="icon">&#10003;</span> You have clients you want to implement AI systems for and need a proven framework to do it</li>
+            <li><span class="icon">&#10003;</span> You're tired of AI tools that don't connect to your actual workflows and operations</li>
+            <li><span class="icon">&#10003;</span> You want done-with-you implementation, not another course you'll never finish</li>
+            <li><span class="icon">&#10003;</span> You want direct access to two founders who run this system in their own businesses every day</li>
           </ul>
         </div>
         <div class="qual-col not-you glass-card reveal">
           <h3>This is NOT for you if...</h3>
           <ul class="qual-list">
             <li><span class="icon">&times;</span> You're looking for passive income or a magic button. This is an operating system. You still run your business.</li>
-            <li><span class="icon">&times;</span> You don't have a business, service, or clear idea. We install infrastructure for a real operation.</li>
-            <li><span class="icon">&times;</span> You want ChatGPT prompts. This is a multi-layer architecture with agents and automation. Different category.</li>
-            <li><span class="icon">&times;</span> You're not willing to show up for calls and engage with the process.</li>
-            <li><span class="icon">&times;</span> You expect results in 24 hours without doing anything. Install takes 5 days. ROI takes up to 90 days.</li>
+            <li><span class="icon">&times;</span> You don't have a business, service, or clear plan. We install infrastructure for a real operation.</li>
+            <li><span class="icon">&times;</span> You want ChatGPT prompts. This is agent-based architecture with agentic workflows. Different category.</li>
+            <li><span class="icon">&times;</span> You're not willing to show up for bi-weekly calls and engage with the process.</li>
+            <li><span class="icon">&times;</span> You expect results without doing anything. We build it. You operate it. The ROI comes from both.</li>
           </ul>
         </div>
       </div>
@@ -793,32 +801,32 @@
       <h2 class="section-heading reveal" style="text-align: center;">Straight answers.</h2>
       <div class="faq-list">
         <div class="faq-item reveal">
-          <button class="faq-q">Why $4,000?</button>
-          <div class="faq-a"><p>Because we build a custom system for your business, install it in less than 5 days, and coach you through 6 months of implementation. The system is designed to pay for itself within 90 days. One new client. One freed-up bottleneck. One workflow that used to take 3 days now taking 3 hours. If you can't see a path to making $4,000 back within 90 days using AI automation, this probably isn't for you yet.</p></div>
+          <button class="faq-q">Why $5,000?</button>
+          <div class="faq-a"><p>Because we build custom AI agents and agentic workflows tailored to your business, install everything for you, and then coach you through 6 months of implementation with bi-weekly one-on-one calls. The system is designed to pay for itself within 60 days. One new client. One freed-up bottleneck. One workflow that used to take days now taking hours. If you can't see a path to making $5,000 back within 60 days using AI automation, this probably isn't for you yet.</p></div>
         </div>
         <div class="faq-item reveal">
-          <button class="faq-q">How long does implementation take?</button>
-          <div class="faq-a"><p>Less than 5 days from assessment to fully operational system. We assess your business, build the system, and install it. You don't need to learn anything technical during that phase. The 6 months of coaching after that is where you learn to operate, optimize, and squeeze every dollar out of it.</p></div>
+          <button class="faq-q">How does this work for my specific business type?</button>
+          <div class="faq-a"><p>We've pre-trained agents across marketing, sales, operations, and tech for every business type. Info products, agencies, brick-and-mortar, service businesses, e-commerce, wealth management. The onboarding call is where we learn your business. The build phase is where we customize everything. Whether you're running a storefront with 400 staff or a solo online operation, the system adapts to your workflows.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">What if I want to implement AI for my clients too?</button>
+          <div class="faq-a"><p>That's exactly what this is built for. Many of our members are operators who want to offer AI implementation as a service to their own clients. The agent workflows we build are designed to be replicated and customized. You learn the system for your business, then deploy it for others.</p></div>
         </div>
         <div class="faq-item reveal">
           <button class="faq-q">What happens after the 6 months?</button>
-          <div class="faq-a"><p>You keep everything. The system, the agents, every update we've ever released. Your Lifetime Agent Access means you get every future build at no extra cost. If you want continued 1-on-1 coaching beyond 6 months, we offer an advisory option. But the system is yours forever.</p></div>
+          <div class="faq-a"><p>You keep everything. The system, the agents, every update we've ever released. Your Lifetime Agent Access means you get every future build at no extra cost. If you want continued one-on-one coaching beyond 6 months, we offer an advisory option. But the system is yours forever.</p></div>
         </div>
         <div class="faq-item reveal">
           <button class="faq-q">Do I need technical skills?</button>
           <div class="faq-a"><p>No. The entire install is done for you. You need to know your business and your craft. We handle the technical configuration. If you can use a computer and attend a video call, you have enough technical skill for this.</p></div>
         </div>
         <div class="faq-item reveal">
-          <button class="faq-q">What if my niche is different from yours?</button>
-          <div class="faq-a"><p>The system is architecture, not templates. We've built systems for marketing agencies, trading educators, fitness brands, nutrition coaches, and e-commerce operators. The assessment phase is where we learn your business. The build phase is where we customize everything for it.</p></div>
-        </div>
-        <div class="faq-item reveal">
           <button class="faq-q">What's the ROI guarantee?</button>
-          <div class="faq-a"><p>Your investment back within 90 days. The system should generate or save you at least $4,000 through new revenue, saved time, increased capacity, or all three. If you show up for calls, implement what we build, and engage with the process, the 90-day timeline is conservative.</p></div>
+          <div class="faq-a"><p>Your investment back within 60 days. The system should generate or save you at least $5,000 through new revenue, saved time, increased capacity, or reduced labor costs. If you show up for calls, implement what we build, and engage with the process, and you still haven't seen ROI within 60 days, we continue working with you for free until you do.</p></div>
         </div>
         <div class="faq-item reveal">
-          <button class="faq-q">What do I need to get started?</button>
-          <div class="faq-a"><p>A business (or a clear plan for one), a computer, and a Claude Pro or Claude Team subscription (roughly $20 to $100/month). We handle the rest during the install phase.</p></div>
+          <button class="faq-q">What about the mastermind event?</button>
+          <div class="faq-a"><p>Every member gets one ticket to our in-person mastermind. Three days, two locations to be announced. We handle everything. You come out, connect with other operators building with AI, and leave with relationships and strategies that compound. Dates and locations will be announced to members first.</p></div>
         </div>
       </div>
     </div>
@@ -831,22 +839,22 @@
     <div class="cta-mesh"></div>
     <div class="container">
       <div class="section-label reveal">TAKE THE NEXT STEP</div>
-      <h2 class="section-heading reveal">Your investment back in 90 days. <span class="shimmer">Or you shouldn't do this.</span></h2>
+      <h2 class="section-heading reveal">Your investment back in 60 days. <span class="shimmer">Or we work for free.</span></h2>
       <div class="section-body reveal">
-        <p>Both of us run our businesses on this system. It works because we built it under real conditions, with real pressure, for real results.</p>
-        <p>The question is whether you're going to keep watching from the sidelines or let two people who've already built this install it in your business this week.</p>
+        <p>Both of us run our businesses on this system. It works because we built it under real conditions, with real pressure, for real results. $36K in our first soft launch week.</p>
+        <p>The question is whether you're going to keep watching from the sidelines or let two people who've already built this plug it into your business this week.</p>
       </div>
       <div class="cta-stats reveal">
-        <span><strong>&lt;5 days</strong> to operational</span>
-        <span><strong>6 months</strong> of direct support</span>
-        <span><strong>$4,000</strong></span>
+        <span><strong>6 months</strong> direct access</span>
+        <span><strong>60-day</strong> ROI guarantee</span>
+        <span><strong>$5,000</strong></span>
       </div>
       <a href="#apply" class="btn magnetic reveal">Get Started <span>&rarr;</span></a>
       <ul class="cta-friction-list reveal">
         <li>Limited spots. Every system is custom-built. We don't batch this.</li>
         <li>Both founders on every call.</li>
       </ul>
-      <p class="guarantee-line reveal">ROI back within 90 days. That's the promise. Show up, implement, and engage with the coaching. The system handles the rest.</p>
+      <p class="guarantee-line reveal">60-day ROI guarantee. Show up, implement, and engage with the coaching. If you don't see your money back, we keep working with you for free.</p>
     </div>
   </section>
 
@@ -949,130 +957,265 @@
       hObs.observe(canvas.parentElement);
     })();
 
-    // ── DRIVING ANIMATION SYSTEM ──
+    // ── F1 DRIVER CHARACTER ANIMATION (Pudgy Penguins Style) ──
     (function() {
       if (reducedMotion || isMobile) return;
-      var canvas = document.querySelector('.drive-canvas');
+      var canvas = document.querySelector('.f1-canvas');
       var ctx = canvas.getContext('2d');
-      var W, H, maxScroll, lastScroll = 0, scrollDelta = 0;
-      var particles = [];
-      var MAX_PARTICLES = 120;
+      var W, H, maxScroll;
+      var lastScroll = 0, scrollSpeed = 0;
+      var trails = [];
+      var MAX_TRAILS = 80;
+      var time = 0;
 
-      function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; maxScroll = document.documentElement.scrollHeight - H; }
+      // Spring physics for bouncy Pudgy-style movement
+      var car = {
+        x: 0, y: 0, targetY: 0, vy: 0,
+        bobPhase: 0, tilt: 0, targetTilt: 0,
+        squash: 1, targetSquash: 1,
+        scale: 1
+      };
+      var SPRING = 0.06;
+      var DAMPING = 0.82;
+      var BOB_SPEED = 0.025;
+      var BOB_AMP = 6;
+
+      function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        maxScroll = document.documentElement.scrollHeight - H;
+      }
       resize();
       window.addEventListener('resize', resize);
 
-      // Vehicle configs
-      var vehicles = [
-        { x: 0, y: 0, w: 56, h: 24, color: '#7b3cf5', glow: 'rgba(123,60,245,0.5)', trail: 'rgba(123,60,245,', pathFn: function(p) { return { x: -80 + p * (W + 160), y: H * 0.2 + Math.sin(p * Math.PI * 3) * 40 }; }, wheelR: 5 },
-        { x: 0, y: 0, w: 48, h: 20, color: '#00d9a4', glow: 'rgba(0,217,164,0.5)', trail: 'rgba(0,217,164,', pathFn: function(p) { return { x: W + 80 - p * (W + 160), y: H * 0.55 + Math.cos(p * Math.PI * 2.5) * 50 }; }, wheelR: 4 },
-        { x: 0, y: 0, w: 40, h: 18, color: '#c4a1ff', glow: 'rgba(196,161,255,0.4)', trail: 'rgba(196,161,255,', pathFn: function(p) { return { x: -60 + p * (W + 120), y: H * 0.8 + Math.sin(p * Math.PI * 4) * 30 }; }, wheelR: 3.5 }
-      ];
+      function getCarPos(scrollPct) {
+        // Car drives a sinusoidal path across the right side of the screen
+        var pathX = W * 0.75 + Math.sin(scrollPct * Math.PI * 4) * (W * 0.15);
+        var pathY = H * 0.15 + scrollPct * (H * 0.7);
+        return { x: pathX, y: pathY };
+      }
 
-      function drawVehicle(v, scrollPct) {
-        var pos = v.pathFn(scrollPct);
-        v.x = pos.x; v.y = pos.y;
-        var dir = scrollPct > 0.001 ? v.pathFn(scrollPct + 0.001) : v.pathFn(scrollPct);
-        var angle = Math.atan2(dir.y - pos.y, dir.x - pos.x);
-
+      function drawF1Car(x, y, tilt, squashX, squashY) {
         ctx.save();
-        ctx.translate(v.x, v.y);
-        ctx.rotate(angle);
+        ctx.translate(x, y);
+        ctx.rotate(tilt);
+        ctx.scale(squashX, squashY);
 
-        // Glow
-        ctx.shadowColor = v.color;
-        ctx.shadowBlur = 18;
+        var s = 1.1; // scale factor
 
-        // Body
-        ctx.fillStyle = v.color;
+        // Neon underglow
+        ctx.shadowColor = '#7b3cf5';
+        ctx.shadowBlur = 30;
+        ctx.fillStyle = 'rgba(123, 60, 245, 0.08)';
         ctx.beginPath();
-        ctx.roundRect(-v.w / 2, -v.h / 2, v.w, v.h, 6);
+        ctx.ellipse(0, 14 * s, 50 * s, 8 * s, 0, 0, Math.PI * 2);
         ctx.fill();
-
-        // Windshield
-        ctx.fillStyle = 'rgba(255,255,255,0.15)';
-        ctx.beginPath();
-        ctx.roundRect(v.w / 2 - 16, -v.h / 2 + 3, 12, v.h - 6, 3);
-        ctx.fill();
-
-        // Headlight
-        ctx.shadowColor = '#fff';
-        ctx.shadowBlur = 12;
-        ctx.fillStyle = 'rgba(255,255,255,0.9)';
-        ctx.beginPath();
-        ctx.arc(v.w / 2 - 2, -v.h / 4, 2, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.beginPath();
-        ctx.arc(v.w / 2 - 2, v.h / 4, 2, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Wheels
         ctx.shadowBlur = 0;
-        var wheelSpin = scrollPct * 360 * 6;
-        [-1, 1].forEach(function(side) {
-          ctx.save();
-          ctx.translate(-v.w / 3, side * (v.h / 2 + 1));
-          ctx.rotate(wheelSpin * Math.PI / 180);
-          ctx.fillStyle = 'rgba(255,255,255,0.6)';
-          ctx.beginPath(); ctx.arc(0, 0, v.wheelR, 0, Math.PI * 2); ctx.fill();
-          ctx.strokeStyle = 'rgba(255,255,255,0.3)';
-          ctx.lineWidth = 0.5;
-          ctx.beginPath(); ctx.moveTo(-v.wheelR, 0); ctx.lineTo(v.wheelR, 0); ctx.stroke();
-          ctx.beginPath(); ctx.moveTo(0, -v.wheelR); ctx.lineTo(0, v.wheelR); ctx.stroke();
-          ctx.restore();
 
+        // Rear wing supports
+        ctx.strokeStyle = 'rgba(196, 161, 255, 0.6)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(-38 * s, -4 * s); ctx.lineTo(-42 * s, -18 * s);
+        ctx.moveTo(-32 * s, -4 * s); ctx.lineTo(-36 * s, -18 * s);
+        ctx.stroke();
+
+        // Rear wing
+        ctx.fillStyle = '#7b3cf5';
+        ctx.shadowColor = '#7b3cf5';
+        ctx.shadowBlur = 12;
+        ctx.beginPath();
+        ctx.roundRect(-48 * s, -22 * s, 22 * s, 6 * s, 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        // Main body (monocoque)
+        var bodyGrad = ctx.createLinearGradient(-40 * s, 0, 50 * s, 0);
+        bodyGrad.addColorStop(0, '#5a2ab5');
+        bodyGrad.addColorStop(0.4, '#7b3cf5');
+        bodyGrad.addColorStop(1, '#9b6ff5');
+        ctx.fillStyle = bodyGrad;
+        ctx.beginPath();
+        ctx.moveTo(-36 * s, -6 * s);
+        ctx.lineTo(-36 * s, 8 * s);
+        ctx.quadraticCurveTo(-20 * s, 12 * s, 10 * s, 10 * s);
+        ctx.lineTo(48 * s, 4 * s);
+        ctx.lineTo(52 * s, 0);
+        ctx.lineTo(48 * s, -2 * s);
+        ctx.lineTo(10 * s, -6 * s);
+        ctx.quadraticCurveTo(-5 * s, -12 * s, -20 * s, -10 * s);
+        ctx.closePath();
+        ctx.fill();
+
+        // Neon stripe
+        ctx.strokeStyle = '#00d9a4';
+        ctx.lineWidth = 1.5;
+        ctx.shadowColor = '#00d9a4';
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        ctx.moveTo(-30 * s, 1 * s);
+        ctx.quadraticCurveTo(10 * s, -2 * s, 48 * s, 1 * s);
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+
+        // Cockpit opening
+        ctx.fillStyle = 'rgba(5, 5, 31, 0.7)';
+        ctx.beginPath();
+        ctx.ellipse(-5 * s, -6 * s, 12 * s, 7 * s, -0.1, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Halo (safety device)
+        ctx.strokeStyle = 'rgba(196, 161, 255, 0.7)';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(-16 * s, -7 * s);
+        ctx.quadraticCurveTo(-5 * s, -16 * s, 6 * s, -7 * s);
+        ctx.stroke();
+
+        // Driver helmet
+        ctx.fillStyle = '#1a1a3e';
+        ctx.beginPath();
+        ctx.arc(-5 * s, -9 * s, 7 * s, 0, Math.PI * 2);
+        ctx.fill();
+
+        // AI Visor (glowing)
+        var visorGrad = ctx.createLinearGradient(-10 * s, -10 * s, 2 * s, -8 * s);
+        visorGrad.addColorStop(0, '#00d9a4');
+        visorGrad.addColorStop(1, '#7b3cf5');
+        ctx.fillStyle = visorGrad;
+        ctx.shadowColor = '#00d9a4';
+        ctx.shadowBlur = 10;
+        ctx.beginPath();
+        ctx.ellipse(-3 * s, -9 * s, 5 * s, 2.5 * s, -0.1, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        // Front wing
+        ctx.fillStyle = '#7b3cf5';
+        ctx.shadowColor = '#7b3cf5';
+        ctx.shadowBlur = 6;
+        ctx.beginPath();
+        ctx.roundRect(44 * s, -4 * s, 10 * s, 2 * s, 1);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.roundRect(44 * s, 4 * s, 10 * s, 2 * s, 1);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        // Front nose cone
+        ctx.fillStyle = '#9b6ff5';
+        ctx.beginPath();
+        ctx.moveTo(48 * s, -2 * s);
+        ctx.lineTo(56 * s, 0);
+        ctx.lineTo(48 * s, 2 * s);
+        ctx.closePath();
+        ctx.fill();
+
+        // Rear wheels
+        var wheelSpin = time * 3;
+        [[-28, 10], [-28, -8]].forEach(function(pos) {
           ctx.save();
-          ctx.translate(v.w / 4, side * (v.h / 2 + 1));
-          ctx.rotate(wheelSpin * Math.PI / 180);
-          ctx.fillStyle = 'rgba(255,255,255,0.6)';
-          ctx.beginPath(); ctx.arc(0, 0, v.wheelR, 0, Math.PI * 2); ctx.fill();
+          ctx.translate(pos[0] * s, pos[1] * s);
+          ctx.rotate(wheelSpin);
+          ctx.fillStyle = 'rgba(40, 40, 80, 0.9)';
+          ctx.beginPath(); ctx.arc(0, 0, 6 * s, 0, Math.PI * 2); ctx.fill();
+          ctx.strokeStyle = 'rgba(196, 161, 255, 0.4)';
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(-5 * s, 0); ctx.lineTo(5 * s, 0); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(0, -5 * s); ctx.lineTo(0, 5 * s); ctx.stroke();
+          ctx.restore();
+        });
+
+        // Front wheels
+        [[38, 6], [38, -4]].forEach(function(pos) {
+          ctx.save();
+          ctx.translate(pos[0] * s, pos[1] * s);
+          ctx.rotate(wheelSpin);
+          ctx.fillStyle = 'rgba(40, 40, 80, 0.9)';
+          ctx.beginPath(); ctx.arc(0, 0, 4.5 * s, 0, Math.PI * 2); ctx.fill();
+          ctx.strokeStyle = 'rgba(196, 161, 255, 0.4)';
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(-4 * s, 0); ctx.lineTo(4 * s, 0); ctx.stroke();
           ctx.restore();
         });
 
         ctx.restore();
-
-        // Spawn trail particles
-        if (Math.abs(scrollDelta) > 0.5 && particles.length < MAX_PARTICLES) {
-          for (var t = 0; t < 2; t++) {
-            particles.push({
-              x: v.x - Math.cos(angle) * v.w / 2,
-              y: v.y - Math.sin(angle) * v.w / 2,
-              vx: (Math.random() - 0.5) * 1.5 - Math.cos(angle) * 1,
-              vy: (Math.random() - 0.5) * 1.5 - Math.sin(angle) * 1,
-              life: 1, decay: 0.02 + Math.random() * 0.015,
-              size: 1.5 + Math.random() * 2,
-              color: v.trail
-            });
-          }
-        }
       }
 
       function animate() {
         ctx.clearRect(0, 0, W, H);
+        time += 0.016;
 
         var scrollPct = maxScroll > 0 ? window.scrollY / maxScroll : 0;
-        scrollDelta = window.scrollY - lastScroll;
+        var newScrollSpeed = window.scrollY - lastScroll;
+        scrollSpeed = scrollSpeed * 0.85 + newScrollSpeed * 0.15;
         lastScroll = window.scrollY;
 
-        // Draw particles
-        for (var i = particles.length - 1; i >= 0; i--) {
-          var p = particles[i];
+        // Target position from scroll
+        var target = getCarPos(scrollPct);
+
+        // Spring physics for Y (Pudgy-style bouncy movement)
+        var dy = target.y - car.y;
+        car.vy += dy * SPRING;
+        car.vy *= DAMPING;
+        car.y += car.vy;
+
+        // Smooth X tracking
+        car.x += (target.x - car.x) * 0.08;
+
+        // Idle bobbing
+        car.bobPhase += BOB_SPEED;
+        var bob = Math.sin(car.bobPhase) * BOB_AMP;
+
+        // Tilt based on scroll direction (spring)
+        car.targetTilt = Math.max(-0.15, Math.min(0.15, scrollSpeed * 0.003));
+        car.tilt += (car.targetTilt - car.tilt) * 0.1;
+
+        // Squash-and-stretch on direction changes
+        var absSpeed = Math.abs(scrollSpeed);
+        car.targetSquash = absSpeed > 5 ? 1.0 + absSpeed * 0.002 : 1.0;
+        car.squash += (car.targetSquash - car.squash) * 0.15;
+        var squashX = car.squash;
+        var squashY = 2 - car.squash;
+
+        // Spawn trail particles when scrolling
+        if (Math.abs(scrollSpeed) > 1 && trails.length < MAX_TRAILS) {
+          trails.push({
+            x: car.x - 40, y: car.y + bob + (Math.random() - 0.5) * 8,
+            vx: -1.5 + Math.random() * -1, vy: (Math.random() - 0.5) * 0.8,
+            life: 1, decay: 0.025 + Math.random() * 0.015,
+            size: 2 + Math.random() * 3,
+            hue: Math.random() > 0.5 ? 'rgba(123,60,245,' : 'rgba(0,217,164,'
+          });
+        }
+
+        // Draw + update trail particles
+        for (var i = trails.length - 1; i >= 0; i--) {
+          var p = trails[i];
           p.x += p.vx; p.y += p.vy;
-          p.vx *= 0.96; p.vy *= 0.96;
+          p.vx *= 0.97; p.vy *= 0.97;
           p.life -= p.decay;
-          if (p.life <= 0) { particles.splice(i, 1); continue; }
-          ctx.fillStyle = p.color + (p.life * 0.5) + ')';
-          ctx.shadowColor = p.color + '0.3)';
+          if (p.life <= 0) { trails.splice(i, 1); continue; }
+          ctx.fillStyle = p.hue + (p.life * 0.4) + ')';
+          ctx.shadowColor = p.hue + '0.3)';
           ctx.shadowBlur = 6;
-          ctx.beginPath(); ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2); ctx.fill();
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
+          ctx.fill();
         }
         ctx.shadowBlur = 0;
 
-        // Draw vehicles
-        vehicles.forEach(function(v) { drawVehicle(v, scrollPct); });
+        // Draw F1 car
+        drawF1Car(car.x, car.y + bob, car.tilt, squashX, squashY);
 
         requestAnimationFrame(animate);
       }
+
+      // Initialize car position
+      var initPos = getCarPos(0);
+      car.x = initPos.x;
+      car.y = initPos.y;
+
       animate();
     })();
 
