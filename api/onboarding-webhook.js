@@ -37,7 +37,7 @@ async function appendToSheet(rowValues) {
   }
 
   const SHEET_ID = '1Tfdtvb-5355NwOVmvd8ltvixlNK1XQSeJeAmVnzZivM';
-  const RANGE = 'Onboarding!A:P';
+  const RANGE = 'Onboarding!A:O';
 
   const res = await fetch(
     `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
@@ -104,7 +104,6 @@ export default async function handler(req, res) {
     // Extract fields (match these to your Tally form field labels)
     const name = fields['Your name'] || fields['Name'] || 'Unknown';
     const email = fields['Email address'] || fields['Email'] || '';
-    const discord = fields['Discord username'] || '';
     const businessName = fields['Business name and website'] || fields["What's your business name and website?"] || '';
     const industry = fields['What industry are you in?'] || fields['Industry'] || '';
     const sells = fields['What do you sell?'] || '';
@@ -128,7 +127,7 @@ export default async function handler(req, res) {
       title: 'New Onboarding Submission',
       color: color,
       fields: [
-        { name: 'Member', value: `**${name}**\n${email}\nDiscord: ${discord}`, inline: false },
+        { name: 'Member', value: `**${name}**\n${email}`, inline: false },
         { name: 'Business', value: `${businessName}\n${industry}`, inline: true },
         { name: 'Revenue', value: revenue || 'Not specified', inline: true },
         { name: 'Team Size', value: teamSize || 'Not specified', inline: true },
@@ -145,7 +144,7 @@ export default async function handler(req, res) {
     };
 
     const discordPayload = {
-      content: `@here **${name}** just completed their onboarding questionnaire. Booking their assessment call now.`,
+      content: `@here **${name}** just completed their onboarding questionnaire.`,
       embeds: [embed]
     };
 
@@ -168,7 +167,6 @@ export default async function handler(req, res) {
         new Date().toISOString(), // Submitted
         name,                     // Name
         email,                    // Email
-        discord,                  // Discord
         businessName,             // Business
         industry,                 // Industry
         sells,                    // What They Sell
