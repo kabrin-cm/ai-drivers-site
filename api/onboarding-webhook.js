@@ -81,7 +81,18 @@ export default async function handler(req, res) {
         const label = field.label || field.key || 'Unknown';
         let value = '';
 
-        if (field.value !== undefined && field.value !== null) {
+        if (field.options && field.options.length > 0 && field.value) {
+          // Dropdown / multiple choice: match selected ID(s) to option text
+          if (Array.isArray(field.value)) {
+            value = field.value.map(function(v) {
+              var opt = field.options.find(function(o) { return o.id === v; });
+              return opt ? (opt.text || opt.name) : v;
+            }).join(', ');
+          } else {
+            var opt = field.options.find(function(o) { return o.id === field.value; });
+            value = opt ? (opt.text || opt.name) : String(field.value);
+          }
+        } else if (field.value !== undefined && field.value !== null) {
           if (Array.isArray(field.value)) {
             value = field.value.join(', ');
           } else if (typeof field.value === 'object') {
@@ -89,10 +100,6 @@ export default async function handler(req, res) {
           } else {
             value = String(field.value);
           }
-        }
-
-        if (field.options && field.options.length > 0) {
-          value = field.options.map(o => o.text || o.name || o).join(', ');
         }
 
         if (value) {
