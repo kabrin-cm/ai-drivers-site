@@ -312,6 +312,15 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 810px) {
+      /* Kill heavy effects that freeze mobile browsers */
+      body::before { display: none !important; }
+      .orb { filter: blur(40px); opacity: 0.15; animation: none; }
+      .form-wrap, .booking-wrap, .discord-wrap, .step-card, nav {
+        backdrop-filter: none; -webkit-backdrop-filter: none;
+      }
+      .form-wrap iframe { filter: none; }
+      .form-wrap { background: #0d0d35; }
+
       .steps-grid { grid-template-columns: 1fr; gap: 12px; }
       .step-card:not(:last-child)::after { display: none; }
       .form-wrap { padding: 16px 12px; }
@@ -408,6 +417,7 @@
       <div class="form-wrap reveal">
         <iframe
           data-tally-src="https://tally.so/embed/rj6RdX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          src="https://tally.so/embed/rj6RdX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
           loading="lazy" width="100%" height="600" frameborder="0"
           marginheight="0" marginwidth="0"
           title="AI Drivers Onboarding Questionnaire">
