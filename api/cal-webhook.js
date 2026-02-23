@@ -3,9 +3,9 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const DISCORD_WEBHOOK_URL = process.env.DISCORD_ONBOARDING_WEBHOOK_URL;
+  const DISCORD_WEBHOOK_URL = process.env.DISCORD_CAL_WEBHOOK_URL;
   if (!DISCORD_WEBHOOK_URL) {
-    return res.status(500).json({ error: 'Onboarding Discord webhook not configured' });
+    return res.status(500).json({ error: 'Cal booking Discord webhook not configured' });
   }
 
   try {
