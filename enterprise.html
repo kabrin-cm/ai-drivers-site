@@ -431,6 +431,19 @@
     .final-cta .section-heading { max-width: 700px; margin: 0 auto 20px; }
     .final-cta .section-body { max-width: 650px; margin: 0 auto 40px; text-align: center; }
 
+    /* ── INTEGRATION PILLS ── */
+    .integration-pill {
+      display: inline-block; padding: 8px 20px; border-radius: var(--radius-pill);
+      font-family: var(--font-mono); font-size: 0.8rem; font-weight: 400;
+      color: var(--gray-light); background: rgba(123, 60, 245, 0.06);
+      border: 1px solid var(--border-active);
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+    .integration-pill:hover {
+      border-color: rgba(123, 60, 245, 0.5); color: var(--white);
+      background: rgba(123, 60, 245, 0.12);
+    }
+
     /* ── TALLY FORM ── */
     .tally-section { padding: 80px 0; }
     .tally-wrap { max-width: 700px; margin: 0 auto; }
@@ -522,7 +535,7 @@
         <a href="#form" class="btn magnetic" id="hero-cta">Book a Discovery Call <span>&rarr;</span></a>
         <a href="#process" class="btn-secondary">See How It Works <span>&darr;</span></a>
       </div>
-      <p class="hero-proof reveal"><strong>$4M+</strong> combined revenue &middot; Both businesses running on this system &middot; <strong>$36K</strong> generated before a single ad</p>
+      <p class="hero-proof reveal"><strong>14-day</strong> deployment guarantee &middot; Both founders run their businesses on this system &middot; <strong>90-day</strong> optimization included</p>
     </div>
   </section>
 
@@ -539,8 +552,8 @@
         <p>You've probably explored AI already. Maybe you hired a developer who built something impressive in a demo and useless in production. Maybe you tried an AI consulting firm that delivered a strategy deck and a $40,000 invoice. Maybe you bought five different "AI-powered" tools that each automate 15% of one workflow and none of them talk to each other.</p>
       </div>
       <div class="stat-callout reveal">
-        <div class="stat-num">95%</div>
-        <div class="stat-desc">of enterprise AI pilots deliver zero measurable return. 88% never reach production. Companies are spending $30 to $40 billion annually on generative AI, and the vast majority have nothing to show for it. The technology works. The implementation doesn't.</div>
+        <div class="stat-num">90%</div>
+        <div class="stat-desc">of enterprise AI projects fail to deliver meaningful ROI, according to RAND Corporation research. Companies are spending over $40 billion annually on generative AI, and the vast majority have nothing to show for it. The technology works. The implementation doesn't.</div>
       </div>
       <div class="section-body reveal">
         <p>The people you hired to build it understood code but not operations. They built systems that work in testing and collapse under the weight of real workflows, real edge cases, and real deadlines.</p>
@@ -656,16 +669,16 @@
           <div class="cred-label">Combined revenue generated</div>
         </div>
         <div class="glass-card cred-item reveal">
-          <div class="cred-num" data-count="14" data-suffix=" days">0</div>
-          <div class="cred-label">Deployment standard</div>
+          <div class="cred-num" data-count="11">0</div>
+          <div class="cred-label">Franchise locations opened and operated</div>
         </div>
         <div class="glass-card cred-item reveal">
-          <div class="cred-num" data-count="36" data-prefix="$" data-suffix="K">0</div>
-          <div class="cred-label">Generated in soft launch</div>
+          <div class="cred-num" data-count="200" data-suffix="+">0</div>
+          <div class="cred-label">Staff managed across brick-and-mortar operations</div>
         </div>
         <div class="glass-card cred-item reveal">
           <div class="cred-num" data-count="2">0</div>
-          <div class="cred-label">Businesses running on this system</div>
+          <div class="cred-label">Businesses running fully automated on AI</div>
         </div>
       </div>
     </div>
@@ -676,36 +689,28 @@
   <!-- PROOF -->
   <section id="proof">
     <div class="container">
-      <div class="section-label reveal">THE EVIDENCE</div>
-      <h2 class="section-heading reveal">Numbers, not promises.</h2>
-      <div class="proof-grid">
-        <div class="glass-card proof-card gradient-border reveal">
-          <div class="proof-num" data-prefix="$" data-count="4" data-suffix="M+">0</div>
-          <div class="proof-label">Combined revenue through AI-powered systems</div>
-        </div>
-        <div class="glass-card proof-card gradient-border reveal">
-          <div class="proof-num" data-count="14" data-suffix=" days">0</div>
-          <div class="proof-label">Standard deployment (industry average: 8-12 weeks)</div>
-        </div>
-        <div class="glass-card proof-card gradient-border reveal">
-          <div class="proof-num" data-prefix="$" data-count="36" data-suffix="K">0</div>
-          <div class="proof-label">Generated in soft launch, before a single paid ad</div>
-        </div>
-        <div class="glass-card proof-card gradient-border reveal">
-          <div class="proof-num" data-count="2">0</div>
-          <div class="proof-label">Businesses running in production on this system</div>
-        </div>
-        <div class="glass-card proof-card gradient-border reveal">
-          <div class="proof-num" data-count="90" data-suffix=" days">0</div>
-          <div class="proof-label">Post-deployment optimization included</div>
-        </div>
-        <div class="glass-card proof-card gradient-border reveal">
-          <div class="proof-num" data-count="11">0</div>
-          <div class="proof-label">Franchise locations opened, operated, and exited</div>
-        </div>
+      <div class="section-label reveal">WHAT WE INTEGRATE WITH</div>
+      <h2 class="section-heading reveal">Your existing tools. <span class="shimmer">Connected and automated.</span></h2>
+      <div class="section-body reveal">
+        <p>We deploy into the tools your team already uses. No migrations. No new platforms to learn. The agents operate inside your existing stack.</p>
+      </div>
+      <div class="integrations-bar reveal" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 40px;">
+        <span class="integration-pill">HubSpot</span>
+        <span class="integration-pill">Salesforce</span>
+        <span class="integration-pill">Slack</span>
+        <span class="integration-pill">Notion</span>
+        <span class="integration-pill">Monday.com</span>
+        <span class="integration-pill">Asana</span>
+        <span class="integration-pill">Google Workspace</span>
+        <span class="integration-pill">Microsoft Teams</span>
+        <span class="integration-pill">ClickUp</span>
+        <span class="integration-pill">Pipedrive</span>
+        <span class="integration-pill">Airtable</span>
+        <span class="integration-pill">Zapier</span>
+        <span class="integration-pill">Custom APIs</span>
       </div>
       <div class="section-body reveal" style="margin-top: 32px; max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;">
-        <p>Both founders operate their primary businesses on this system. The system was built under real conditions, with real clients, real deadlines, and real revenue on the line.</p>
+        <p>Both founders operate their primary businesses on this system. It was built under real conditions, with real clients, real deadlines, and real revenue on the line.</p>
       </div>
       <div style="text-align: center; margin-top: 32px;" class="reveal">
         <a href="#form" class="btn magnetic">Book a Discovery Call <span>&rarr;</span></a>
@@ -897,7 +902,7 @@
       <h2 class="section-heading reveal">Your competitors are figuring this out. <span class="shimmer">The question is whether you figure it out first.</span></h2>
       <div class="section-body reveal">
         <p>Every month a business delays deploying operational AI, the companies that moved first pull further ahead on cost structure, speed, and margin. The gap compounds.</p>
-        <p>We're operators. $4M+ in combined revenue proves the architecture works. The 14-day deployment guarantee proves we stand behind it. The 90 days of optimization prove we don't disappear after the invoice clears.</p>
+        <p>We're operators. Both of our businesses run on this system. The 14-day deployment guarantee proves we stand behind it. The 90 days of optimization prove we don't disappear after the invoice clears.</p>
         <p>One call. Thirty minutes. We'll map what an AI agent team looks like for your specific operations, which workflows get automated first, and what the deployment timeline looks like. No commitment. No pitch deck. Just a real conversation between operators about what's possible.</p>
       </div>
       <div class="reveal">
@@ -928,9 +933,8 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>AI Drivers. Built by Crafted Marketing + Arbory LLC.</p>
-      <p><a href="mailto:kabrin@aidrivers.io">kabrin@aidrivers.io</a></p>
       <p>&copy; 2026 AI Drivers. All rights reserved.</p>
+      <p><a href="mailto:kabrin@aidrivers.io">kabrin@aidrivers.io</a> &middot; <a href="/privacy">Privacy</a></p>
     </div>
   </footer>
 
